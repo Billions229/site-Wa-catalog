@@ -342,7 +342,23 @@ export default function CategoryDetailPage() {
             }} />
           </div>
 
-          {/* Images Gallery Background */}
+          {/* Images Gallery Background - Mobile */}
+          <div className="absolute inset-0 lg:hidden">
+            <div className="absolute inset-0 opacity-15">
+              {category.images.slice(0, 1).map((img: string, idx: number) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`Exemple ${category.name}`}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              ))}
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-transparent" />
+          </div>
+
+          {/* Images Gallery Background - Desktop */}
           <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:flex items-center justify-end gap-4 p-8 opacity-20">
             {category.images.slice(0, 3).map((img: string, idx: number) => (
               <img
@@ -355,10 +371,10 @@ export default function CategoryDetailPage() {
             ))}
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
             <div className="max-w-2xl">
               {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-white/80 mb-6 text-sm">
+              <nav className="flex items-center gap-1.5 sm:gap-2 text-white/80 mb-4 sm:mb-6 text-xs sm:text-sm flex-wrap">
                 <Link to="/" className="hover:text-white transition-colors">Accueil</Link>
                 <span>›</span>
                 <Link to="/categories" className="hover:text-white transition-colors">Catégories</Link>
@@ -366,39 +382,44 @@ export default function CategoryDetailPage() {
                 <span className="text-white font-semibold">{category.name}</span>
               </nav>
 
-              {/* Icon + Title */}
-              <div className="flex items-center gap-6 mb-6">
-                <div className="bg-white/20 backdrop-blur-md p-6 rounded-3xl border-2 border-white/30 shadow-2xl">
-                  <IconComponent className="w-16 h-16 text-white" />
+              {/* Icon + Title - Mobile Optimized */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
+                {/* Icon - Smaller on mobile */}
+                <div className="bg-white/20 backdrop-blur-md p-4 sm:p-6 rounded-2xl sm:rounded-3xl border-2 border-white/30 shadow-2xl shrink-0">
+                  <IconComponent className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                 </div>
-                <div>
-                  <h1 className="text-5xl md:text-6xl font-black text-white mb-2 leading-tight">
+                {/* Text Content - Centered on mobile, left-aligned on desktop */}
+                <div className="text-center sm:text-left flex-1">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 sm:mb-3 leading-tight drop-shadow-lg">
                     {category.name}
                   </h1>
-                  <p className="text-2xl text-white/90 font-medium">{category.description}</p>
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 font-semibold sm:font-medium leading-snug sm:leading-normal">
+                    {category.description}
+                  </p>
                 </div>
               </div>
 
-              <p className="text-lg text-white/90 mb-8 leading-relaxed">
+              {/* Long Description - Better mobile formatting */}
+              <p className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 leading-relaxed text-center sm:text-left max-w-xl mx-auto sm:mx-0">
                 {category.longDescription}
               </p>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center max-w-4xl">
+              {/* CTAs - Mobile Optimized */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start items-stretch sm:items-center max-w-4xl">
                 <button
                   onClick={() => handleWhatsAppClick()}
-                  className="inline-flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-white/30 hover:scale-105 group w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-gray-900 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all shadow-2xl hover:shadow-white/30 hover:scale-105 active:scale-95 group w-full sm:w-auto"
                 >
-                  <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform" />
                   Discuter avec le bot
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
                 <Link
                   to={`/categories/${slug}/produits`}
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl w-full sm:w-auto justify-center"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/50 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all shadow-xl active:scale-95 w-full sm:w-auto"
                 >
-                  <ShoppingBag className="w-6 h-6" />
+                  <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
                   Voir les produits disponibles
                 </Link>
               </div>
