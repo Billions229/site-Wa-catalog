@@ -56,10 +56,10 @@ export default function HowItWorks() {
       title: "Précise tes besoins",
       description: "Le bot te demande plus de détails pour trouver exactement ce qui te correspond : ville, livraison souhaitée, budget et état préféré.",
       benefits: [
-        "🏙️ Dans quelle ville ? (ex: Cotonou)",
-        "🚚 Livraison souhaitée ? (Oui/Non)",
-        "💰 Quel est ton budget ? (ex: 450 000 FCFA)",
-        "📦 État préféré ? (Neuf/Occasion)",
+        "Dans quelle ville ? (ex: Cotonou)",
+        "Livraison souhaitée ? (Oui/Non)",
+        "Quel est ton budget ? (ex: 450 000 FCFA)",
+        "État préféré ? (Neuf/Occasion)",
       ],
     },
     {
@@ -67,11 +67,11 @@ export default function HowItWorks() {
       title: "Reçois et contacte les vendeurs",
       description: "Le bot t'envoie les produits correspondants avec photos, prix et contacts vendeurs. Clique sur le lien du vendeur qui t'intéresse et finalise ton achat directement avec lui.",
       benefits: [
-        "📸 Photos réelles des produits",
-        "💵 Prix clairs en FCFA",
-        "📍 Localisation des vendeurs",
-        "📞 Numéros WhatsApp directs",
-        "⏱️ Réponse en moins de 30 secondes",
+        "Photos réelles des produits",
+        "Prix clairs en FCFA",
+        "Localisation des vendeurs",
+        "Numéros WhatsApp directs",
+        "Réponse en moins de 30 secondes",
       ],
     },
   ]

@@ -1,9 +1,11 @@
 import { Menu, X, ShoppingBag, HelpCircle, Users, BookOpen, Shield, Phone, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const WHATSAPP_BOT_NUMBER = '22999323073';
 
@@ -78,7 +80,7 @@ export default function Navbar() {
   };
 
   const handleVendorClick = () => {
-    window.open('https://kloo.me/vendeur-wa-catalogue', '_blank');
+    navigate('/devenir-vendeur');
   };
 
   return (

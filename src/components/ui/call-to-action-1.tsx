@@ -1,6 +1,9 @@
 "use client"
 
+import { useNavigate } from "react-router-dom"
+
 export default function CallToAction1() {
+  const navigate = useNavigate()
   return (
     <>
       <style>{`
@@ -36,7 +39,7 @@ export default function CallToAction1() {
           Développe ton business avec wa-catalog
         </h1>
         <button
-          onClick={() => window.open("https://kloo.me/vendeur-wa-catalogue", "_blank", "noopener,noreferrer")}
+          onClick={() => navigate("/devenir-vendeur")}
           className="px-8 py-3 text-white bg-violet-600 hover:bg-violet-700 transition-all rounded-full uppercase text-sm mt-8"
         >
           Devenir vendeur
