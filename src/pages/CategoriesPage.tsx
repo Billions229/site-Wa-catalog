@@ -207,7 +207,7 @@ export default function CategoriesPage() {
 
               <button
                 onClick={() => handleWhatsAppClick()}
-                className="inline-flex items-center gap-3 bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-white/20 hover:scale-105 group"
+                className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-primary/30 hover:scale-105 group"
               >
                 <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                 Discuter avec le bot
@@ -324,7 +324,7 @@ export default function CategoriesPage() {
               
               <button
                 onClick={() => handleWhatsAppClick()}
-                className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-2xl hover:scale-105 group"
+                className="inline-flex items-center gap-3 bg-white hover:bg-gray-50 text-primary px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-primary/20 hover:scale-105 group"
               >
                 <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                 Discuter avec le bot maintenant

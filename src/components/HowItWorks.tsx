@@ -1,6 +1,6 @@
 import type React from "react"
 import { cn } from "@/lib/utils"
-import { Layers, Search, Zap } from "lucide-react"
+import { MessageCircle, Search, ShoppingBag } from "lucide-react"
 
 interface StepCardProps {
   icon: React.ReactNode
@@ -40,34 +40,38 @@ const StepCard: React.FC<StepCardProps> = ({ icon, title, description, benefits 
 export default function HowItWorks() {
   const stepsData = [
     {
-      icon: <Search className="h-6 w-6" />,
-      title: "Envoie ta demande",
+      icon: <MessageCircle className="h-6 w-6" />,
+      title: "Ouvre WhatsApp",
       description:
-        "Dis simplement ce que tu cherches et on vérifie instantanément la disponibilité chez des milliers de vendeurs.",
+        "Clique sur le lien pour démarrer une conversation avec notre bot intelligent. Discute naturellement avec lui en commençant par des salutations.",
       benefits: [
-        "Recherche intelligente même avec des termes imprécis",
-        "Détection automatique de ta ville",
-        "Historique de recherche pour un accès rapide",
+        "Le lien ouvre automatiquement WhatsApp",
+        "Sur mobile : l'app WhatsApp se lance",
+        "Sur PC : WhatsApp Web s'ouvre",
+        "Aucune installation requise",
       ],
     },
     {
-      icon: <Layers className="h-6 w-6" />,
-      title: "Choisis la meilleure offre",
-      description: "Compare les prix, la localisation et la disponibilité, choisis l'option optimale.",
+      icon: <Search className="h-6 w-6" />,
+      title: "Précise tes besoins",
+      description: "Le bot te demande plus de détails pour trouver exactement ce qui te correspond : ville, livraison souhaitée, budget et état préféré.",
       benefits: [
-        "Tri par prix, distance et note",
-        "Filtre par disponibilité et fabricant",
-        "Informations détaillées sur chaque offre",
+        "🏙️ Dans quelle ville ? (ex: Cotonou)",
+        "🚚 Livraison souhaitée ? (Oui/Non)",
+        "💰 Quel est ton budget ? (ex: 450 000 FCFA)",
+        "📦 État préféré ? (Neuf/Occasion)",
       ],
     },
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Contacte le vendeur",
-      description: "Appelle directement le vendeur ou demande un rappel via notre service.",
+      icon: <ShoppingBag className="h-6 w-6" />,
+      title: "Reçois et contacte les vendeurs",
+      description: "Le bot t'envoie les produits correspondants avec photos, prix et contacts vendeurs. Clique sur le lien du vendeur qui t'intéresse et finalise ton achat directement avec lui.",
       benefits: [
-        "Contact direct sans intermédiaires",
-        "Possibilité de réserver les produits",
-        "Itinéraire vers le magasin",
+        "📸 Photos réelles des produits",
+        "💵 Prix clairs en FCFA",
+        "📍 Localisation des vendeurs",
+        "📞 Numéros WhatsApp directs",
+        "⏱️ Réponse en moins de 30 secondes",
       ],
     },
   ]
@@ -79,8 +83,7 @@ export default function HowItWorks() {
         <div className="mx-auto mb-16 max-w-4xl text-center">
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Comment ça marche</h2>
           <p className="mt-4 text-lg text-gray-600">
-            Notre service utilise des technologies avancées pour une recherche instantanée de produits chez des milliers
-            de vendeurs dans ta ville
+            3 étapes simples pour trouver n'importe quel produit sur WhatsApp. Toute la recherche et la mise en relation se font dans WhatsApp via notre bot intelligent.
           </p>
         </div>
 
