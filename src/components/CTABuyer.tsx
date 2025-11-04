@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react"
 
 export default function CTABuyer() {
   const handleClick = () => {
-    window.open("https://wa.me/22999323073", "_blank", "noopener,noreferrer")
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
   return (

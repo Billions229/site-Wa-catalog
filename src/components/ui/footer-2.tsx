@@ -58,7 +58,7 @@ const socialLinks = [
 
 export function Footer2() {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/22999323073", "_blank", "noopener,noreferrer")
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
   return (

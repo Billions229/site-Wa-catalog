@@ -7,7 +7,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const WHATSAPP_BOT_NUMBER = '22999323073';
+
 
   const menuItems = [
     {
@@ -76,7 +76,7 @@ export default function Navbar() {
 
 
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${WHATSAPP_BOT_NUMBER}?text=Bonjour%2C%20je%20cherche%20un%20produit`, '_blank');
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer");
   };
 
   const handleVendorClick = () => {
@@ -90,10 +90,11 @@ export default function Navbar() {
         <nav className="hidden justify-between lg:flex h-16 items-center">
           <div className="flex items-center gap-8">
             <a href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">W</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">wa-catalog</span>
+              <img 
+                src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png" 
+                alt="wa-catalog logo" 
+                className="h-12 sm:h-14 w-auto"
+              />
             </a>
 
             <div className="flex items-center gap-1">
@@ -162,10 +163,11 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         <div className="flex lg:hidden h-16 items-center justify-between">
           <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">W</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">wa-catalog</span>
+            <img 
+              src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png" 
+              alt="wa-catalog logo" 
+              className="h-12 w-auto"
+            />
           </a>
 
           <button

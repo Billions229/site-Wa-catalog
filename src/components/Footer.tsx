@@ -27,10 +27,10 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-6 pt-12 pb-6 text-center border-b border-gray-800">
+    <footer className="bg-white border-t border-gray-200 text-gray-700">
+      <div className="max-w-7xl mx-auto px-6 pt-12 pb-6 text-center border-b border-gray-200">
         <a
-          href="https://wa.me/22999323073"
+          href="https://kloo.me/bot-wa-catalogue"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -44,13 +44,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <ShoppingBag className="text-primary w-8 h-8" />
-              <span className="text-xl font-bold text-white">wa-catalog</span>
+              <img 
+                src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png" 
+                alt="wa-catalog logo" 
+                className="h-16 sm:h-20 w-auto"
+              />
             </div>
-            <p className="text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6 text-gray-600">
               Le premier assistant shopping WhatsApp qui indexe tous les catalogues au Bénin.
             </p>
-            <div className="space-y-3 bg-gray-800/50 rounded-lg p-4 border border-primary/20">
+            <div className="space-y-3 bg-gray-50 rounded-lg p-4 border border-gray-200">
               <div className="flex items-center gap-3">
                 <div className="bg-primary/20 p-2 rounded-full">
                   <Phone className="w-5 h-5 text-primary" />
@@ -77,11 +80,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Plateforme</h3>
+            <h3 className="text-gray-900 font-semibold mb-4">Plateforme</h3>
             <ul className="space-y-2">
               {footerLinks.plateforme.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm hover:text-primary transition-colors">
+                  <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
                     {link.name}
                   </a>
                 </li>
@@ -90,13 +93,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Vendeurs</h3>
+            <h3 className="text-gray-900 font-semibold mb-4">Vendeurs</h3>
             <ul className="space-y-2">
               {footerLinks.vendeurs.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm hover:text-primary transition-colors"
+                    className="text-sm text-gray-600 hover:text-primary transition-colors"
                     {...(link.href.startsWith("http") && {
                       target: "_blank",
                       rel: "noopener noreferrer",
@@ -110,11 +113,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Aide</h3>
+            <h3 className="text-gray-900 font-semibold mb-4">Aide</h3>
             <ul className="space-y-2">
               {footerLinks.aide.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm hover:text-primary transition-colors">
+                  <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
                     {link.name}
                   </a>
                 </li>
@@ -123,11 +126,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Légal</h3>
+            <h3 className="text-gray-900 font-semibold mb-4">Légal</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm hover:text-primary transition-colors">
+                  <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
                     {link.name}
                   </a>
                 </li>
@@ -136,9 +139,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-gray-200 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">© 2025 wa-catalog. Tous droits réservés.</p>
+            <p className="text-sm text-gray-600">© 2025 wa-catalog. Tous droits réservés.</p>
             <div className="bg-primary/20 border border-primary/50 rounded-lg px-4 py-2">
               <p className="text-sm text-primary font-medium">Recherche sur WhatsApp uniquement</p>
             </div>

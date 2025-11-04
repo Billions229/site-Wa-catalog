@@ -125,11 +125,8 @@ export default function CategoriesPage() {
     return () => clearInterval(timer)
   }, [])
 
-  const handleWhatsAppClick = (categoryName?: string) => {
-    const message = categoryName
-      ? `Je cherche dans la catégorie ${categoryName} à Cotonou`
-      : "Bonjour, je cherche un produit"
-    window.open(`https://wa.me/22999323073?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+    const handleWhatsAppClick = (categoryName?: string) => {
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % Math.min(4, categories.length))

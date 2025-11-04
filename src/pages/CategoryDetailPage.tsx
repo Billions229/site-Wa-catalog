@@ -285,10 +285,7 @@ export default function CategoryDetailPage() {
   const category = slug ? categoryData[slug] : null
 
   const handleWhatsAppClick = (specificItem?: string) => {
-    const message = specificItem
-      ? `Je cherche ${specificItem} dans la catégorie ${category?.name} à Cotonou`
-      : `Je cherche dans la catégorie ${category?.name} à Cotonou`
-    window.open(`https://wa.me/22999323073?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
   if (!category) {

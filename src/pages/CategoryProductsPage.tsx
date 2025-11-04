@@ -22,13 +22,11 @@ export default function CategoryProductsPage() {
   const products = slug ? mockProductsByCategory[slug] || [] : []
 
   const handleProductClick = (product: Product) => {
-    const message = `Je cherche ${product.name} à ${product.city || "Cotonou"} - Budget: ${product.price} FCFA`
-    window.open(`https://wa.me/22999323073?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
   const handleWhatsAppClick = () => {
-    const message = categoryName ? `Je cherche dans la catégorie ${categoryName}` : "Bonjour, je cherche un produit"
-    window.open(`https://wa.me/22999323073?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
   if (!categoryName || products.length === 0) {

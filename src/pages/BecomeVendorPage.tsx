@@ -27,6 +27,10 @@ export default function BecomeVendorPage() {
   const [selectedPlan, setSelectedPlan] = useState<"starter" | "pro" | "all" | string>("pro")
 
   const handleWhatsAppClick = () => {
+    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
+  }
+
+  const handleTeamContact = () => {
     window.open("https://wa.me/22999323073", "_blank", "noopener,noreferrer")
   }
 
@@ -39,8 +43,8 @@ export default function BecomeVendorPage() {
       // Pay-by-Lead - rediriger vers le formulaire
       handleFormClick()
     } else {
-      // Autres plans - rediriger vers WhatsApp pour discuter
-      handleWhatsAppClick()
+      // Autres plans - rediriger vers WhatsApp pour discuter avec l'équipe
+      handleTeamContact()
     }
   }
 
@@ -268,7 +272,7 @@ export default function BecomeVendorPage() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button
-                  onClick={handleWhatsAppClick}
+                  onClick={handleTeamContact}
                   className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 px-8 py-4 rounded-xl font-extrabold text-lg transition-all hover:scale-105"
                 >
                   <MessageCircle className="w-6 h-6" />
@@ -397,7 +401,7 @@ export default function BecomeVendorPage() {
                   </li>
                 </ul>
                 <button
-                  onClick={handleWhatsAppClick}
+                  onClick={handleTeamContact}
                   className="w-full bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -445,6 +449,7 @@ export default function BecomeVendorPage() {
               }}
               containerClassName="py-0"
               buttonClassName="bg-primary-500 hover:bg-primary-600"
+              showButton={false}
             />
 
             {/* Bouton personnalisé pour commencer */}
@@ -566,7 +571,7 @@ export default function BecomeVendorPage() {
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </button>
               <button
-                onClick={handleWhatsAppClick}
+                onClick={handleTeamContact}
                 className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 px-10 py-5 rounded-xl font-extrabold text-xl transition-all hover:scale-105"
               >
                 <MessageCircle className="w-7 h-7" />

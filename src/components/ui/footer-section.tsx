@@ -71,7 +71,7 @@ export function Footer() {
       {/* CTA Button at top */}
       <div className="w-full flex justify-center mb-12">
         <a
-          href="https://wa.me/22997000000"
+          href="https://kloo.me/bot-wa-catalogue"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"

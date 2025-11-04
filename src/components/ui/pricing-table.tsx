@@ -31,6 +31,7 @@ export interface PricingTableProps extends React.HTMLAttributes<HTMLDivElement> 
   defaultInterval?: "monthly" | "yearly"
   containerClassName?: string
   buttonClassName?: string
+  showButton?: boolean
 }
 
 export function PricingTable({
@@ -42,6 +43,7 @@ export function PricingTable({
   className,
   containerClassName,
   buttonClassName,
+  showButton = true,
   ...props
 }: PricingTableProps) {
   const [isYearly, setIsYearly] = React.useState(defaultInterval === "yearly")
@@ -228,14 +230,16 @@ export function PricingTable({
           </div>
         </div>
 
-        <div className="mt-8 text-center">
-          <Button
-            className={cn("w-full sm:w-auto bg-primary hover:bg-primary/90 px-8 py-2 rounded-xl", buttonClassName)}
-          >
-            Commencer avec {plans.find((p) => p.level === selectedPlan)?.name}
-            <ArrowRightIcon className="w-4 h-4 ml-2" />
-          </Button>
-        </div>
+        {showButton && (
+          <div className="mt-8 text-center">
+            <Button
+              className={cn("w-full sm:w-auto bg-primary hover:bg-primary/90 px-8 py-2 rounded-xl", buttonClassName)}
+            >
+              Commencer avec {plans.find((p) => p.level === selectedPlan)?.name}
+              <ArrowRightIcon className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
