@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de Styles - wa-catalog - Démonstration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Configuration Tailwind personnalisée */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        accent: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                            950: '#431407',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                    },
+                }
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        .animate-pulse-soft {
+            animation: pulseSoft 2s ease-in-out infinite;
+        }
+        
+        /* Styles personnalisés pour les démos */
+        .color-swatch {
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-gray-900">Guide de Styles wa-catalog</h1>
+                <nav class="flex gap-6">
+                    <a href="#couleurs" class="text-gray-700 hover:text-primary-600 transition-colors">Couleurs</a>
+                    <a href="#typographie" class="text-gray-700 hover:text-primary-600 transition-colors">Typographie</a>
+                    <a href="#composants" class="text-gray-700 hover:text-primary-600 transition-colors">Composants</a>
+                    <a href="#animations" class="text-gray-700 hover:text-primary-600 transition-colors">Animations</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white py-20 px-6">
+        <div class="max-w-7xl mx-auto text-center animate-fade-in">
+            <h1 class="text-5xl font-bold leading-tight mb-6">Trouve n'importe quel produit sur WhatsApp</h1>
+            <p class="text-lg mb-8 text-primary-100 max-w-2xl mx-auto">
+                Dis ce que tu cherches, on te montre les vendeurs vérifiés
+            </p>
+            <button class="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300 animate-pulse-soft">
+                Discuter avec le bot
+            </button>
+        </div>
+    </section>
+
+    <!-- Section Couleurs -->
+    <section id="couleurs" class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-gray-900">Palette de couleurs</h2>
+            
+            <!-- Primary Green -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Couleur principale - Vert (Primary)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-4">
+                    <div>
+                        <div class="color-swatch bg-primary-50 text-gray-900">50</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#f0fdf4</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-100 text-gray-900">100</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#dcfce7</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-200 text-gray-900">200</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#bbf7d0</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-300 text-gray-900">300</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#86efac</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-400">400</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#4ade80</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-500">500</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#22c55e ★</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-600">600</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#16a34a</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-700">700</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#15803d</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-800">800</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#166534</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-primary-900">900</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#14532d</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accent Orange -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Couleur secondaire - Orange (Accent)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-4">
+                    <div>
+                        <div class="color-swatch bg-accent-50 text-gray-900">50</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#fff7ed</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-100 text-gray-900">100</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#ffedd5</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-200 text-gray-900">200</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#fed7aa</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-300 text-gray-900">300</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#fdba74</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-400">400</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#fb923c</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-500">500</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#f97316 ★</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-600">600</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#ea580c</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-700">700</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#c2410c</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-800">800</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#9a3412</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-900">900</div>
+                        <p class="text-xs mt-2 text-gray-600 text-center">#7c2d12</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Couleurs sémantiques -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Couleurs sémantiques</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div>
+                        <div class="color-swatch bg-green-500 mb-2">Succès</div>
+                        <p class="text-sm text-gray-600">#22c55e</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-red-500 mb-2">Erreur</div>
+                        <p class="text-sm text-gray-600">#ef4444</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-accent-500 mb-2">Avertissement</div>
+                        <p class="text-sm text-gray-600">#f97316</p>
+                    </div>
+                    <div>
+                        <div class="color-swatch bg-blue-500 mb-2">Information</div>
+                        <p class="text-sm text-gray-600">#3b82f6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Typographie -->
+    <section id="typographie" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-gray-900">Typographie</h2>
+            
+            <div class="space-y-8">
+                <div>
+                    <h1 class="text-5xl font-bold leading-tight text-gray-900 mb-2">H1 - Titre principal (Hero)</h1>
+                    <p class="text-sm text-gray-600">text-5xl font-bold leading-tight | 48px | 700</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl font-bold leading-tight text-gray-900 mb-2">H2 - Titre de section</h2>
+                    <p class="text-sm text-gray-600">text-4xl font-bold leading-tight | 36px | 700</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl font-semibold leading-tight text-gray-800 mb-2">H3 - Sous-titre de section</h3>
+                    <p class="text-sm text-gray-600">text-3xl font-semibold leading-tight | 30px | 600</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-2xl font-semibold leading-snug text-gray-800 mb-2">H4 - Titre de carte/bloc</h4>
+                    <p class="text-sm text-gray-600">text-2xl font-semibold leading-snug | 24px | 600</p>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold leading-snug text-gray-700 mb-2">H5 - Titre de liste</h5>
+                    <p class="text-sm text-gray-600">text-xl font-semibold leading-snug | 20px | 600</p>
+                </div>
+                
+                <div>
+                    <h6 class="text-lg font-medium leading-normal text-gray-700 mb-2">H6 - Titre mineur</h6>
+                    <p class="text-sm text-gray-600">text-lg font-medium leading-normal | 18px | 500</p>
+                </div>
+                
+                <div>
+                    <p class="text-lg leading-relaxed text-gray-700 mb-2">
+                        Body Large - Texte important. Ce style est utilisé pour les introductions et descriptions importantes.
+                    </p>
+                    <p class="text-sm text-gray-600">text-lg leading-relaxed | 18px | 400</p>
+                </div>
+                
+                <div>
+                    <p class="text-base leading-relaxed text-gray-700 mb-2">
+                        Body - Texte standard. Ce style est utilisé pour les paragraphes et le contenu principal. Il offre une lisibilité optimale avec un line-height généreux pour une lecture confortable.
+                    </p>
+                    <p class="text-sm text-gray-600">text-base leading-relaxed | 16px | 400</p>
+                </div>
+                
+                <div>
+                    <p class="text-sm leading-relaxed text-gray-600 mb-2">
+                        Body Small - Texte secondaire utilisé pour les métadonnées et notes.
+                    </p>
+                    <p class="text-xs text-gray-500">text-sm leading-relaxed | 14px | 400</p>
+                </div>
+                
+                <div>
+                    <p class="text-xs leading-relaxed text-gray-500 mb-2">
+                        Caption - Légendes, timestamps, et textes très petits.
+                    </p>
+                    <p class="text-xs text-gray-400">text-xs leading-relaxed | 12px | 400</p>
+                </div>
+                
+                <div class="pt-6 border-t border-gray-200">
+                    <p class="text-base text-gray-700 mb-4">
+                        Exemple de <a href="#" class="text-primary-600 hover:text-primary-700 hover:underline transition-colors">lien standard</a> dans un paragraphe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Composants -->
+    <section id="composants" class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-gray-900">Composants UI</h2>
+            
+            <!-- Boutons -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">Boutons</h3>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 active:bg-primary-700 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300">
+                        Bouton Principal
+                    </button>
+                    <button class="bg-accent-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-600 active:bg-accent-700 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-accent-300">
+                        Bouton Secondaire
+                    </button>
+                    <button class="bg-transparent border-2 border-primary-500 text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 hover:text-primary-700 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300">
+                        Bouton Outline
+                    </button>
+                    <button class="bg-transparent text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                        Bouton Ghost
+                    </button>
+                    <button class="bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg opacity-50 cursor-not-allowed pointer-events-none">
+                        Désactivé
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cartes -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">Cartes</h3>
+                
+                <!-- Carte Catégorie -->
+                <div class="mb-8">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-700">Carte Catégorie</h4>
+                    <div class="bg-gradient-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-xl p-8 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 max-w-md">
+                        <h4 class="text-2xl font-semibold mb-4 text-gray-800">Électronique</h4>
+                        <p class="text-gray-700 mb-6">Téléphones, ordinateurs, accessoires et bien plus encore. Trouvez tous vos appareils électroniques.</p>
+                        <button class="bg-primary-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Voir les produits
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carte Produit -->
+                <div class="mb-8">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-700">Carte Produit</h4>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200 max-w-sm">
+                        <div class="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                            Image Produit
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">iPhone 13 128GB</h4>
+                        <p class="text-primary-600 font-bold text-lg mb-4">450 000 FCFA</p>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium text-xs">Occasion</span>
+                            <span class="text-sm text-gray-600">Cotonou</span>
+                        </div>
+                        <button class="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Discuter avec le bot
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">Badges</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full font-medium text-sm">
+                        ✓ Vendeur Vérifié
+                    </span>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium text-xs">
+                        Nouveau
+                    </span>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium text-xs">
+                        Occasion
+                    </span>
+                    <span class="bg-accent-100 text-accent-800 px-3 py-1 rounded-full font-medium text-xs">
+                        Promotion
+                    </span>
+                </div>
+            </div>
+
+            <!-- Sections avec backgrounds -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">Sections</h3>
+                
+                <!-- Section standard -->
+                <div class="bg-white py-8 px-6 mb-4 border border-gray-200 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">Section Standard (bg-white)</h4>
+                    <p class="text-gray-700">Cette section utilise un fond blanc pour le contenu principal.</p>
+                </div>
+
+                <!-- Section avec background coloré -->
+                <div class="bg-primary-50 border-t border-primary-200 py-8 px-6 mb-4 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">Section avec Background Coloré (bg-primary-50)</h4>
+                    <p class="text-gray-700">Cette section utilise un fond vert clair pour mettre en valeur le contenu.</p>
+                </div>
+
+                <!-- Section avec gradient -->
+                <div class="bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white py-8 px-6 mb-4 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-4">Section avec Gradient</h4>
+                    <p class="text-primary-100">Cette section utilise un gradient vert pour les hero sections et éléments importants.</p>
+                </div>
+            </div>
+
+            <!-- Grilles -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">Grilles Responsive</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-primary-100 p-6 rounded-lg text-center">Col 1</div>
+                    <div class="bg-primary-200 p-6 rounded-lg text-center">Col 2</div>
+                    <div class="bg-primary-300 p-6 rounded-lg text-center">Col 3</div>
+                    <div class="bg-primary-400 p-6 rounded-lg text-center text-white">Col 4</div>
+                </div>
+                
+                <p class="text-sm text-gray-600">
+                    Grid responsive: 1 colonne (mobile) → 2 (tablet) → 3 (desktop) → 4 (large)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Animations -->
+    <section id="animations" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-gray-900">Animations et Transitions</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Fade In -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Fade In</h3>
+                    <div class="bg-primary-500 text-white p-8 rounded-lg text-center animate-fade-in">
+                        Animation fade-in
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">animate-fade-in</p>
+                </div>
+
+                <!-- Slide Up -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Slide Up</h3>
+                    <div class="bg-accent-500 text-white p-8 rounded-lg text-center animate-slide-up">
+                        Animation slide-up
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">animate-slide-up</p>
+                </div>
+
+                <!-- Pulse Soft -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Pulse Soft</h3>
+                    <div class="bg-primary-600 text-white p-8 rounded-lg text-center animate-pulse-soft">
+                        Animation pulse-soft
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">animate-pulse-soft</p>
+                </div>
+            </div>
+
+            <!-- États interactifs -->
+            <div class="mt-12">
+                <h3 class="text-3xl font-semibold mb-6 text-gray-800">États Interactifs</h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-700">Hover</h4>
+                        <button class="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 hover:scale-105 hover:shadow-lg transition-all duration-200">
+                            Passez la souris (Hover)
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-700">Focus</h4>
+                        <button class="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold focus:outline-none focus:ring-4 focus:ring-primary-300 focus:ring-offset-2">
+                            Cliquez puis appuyez sur Tab (Focus)
+                        </button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-700">Active</h4>
+                        <button class="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold active:bg-primary-700 active:scale-95 transition-all duration-150">
+                            Cliquez et maintenez (Active)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Exemple complet -->
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-gray-900">Exemple de composition complète</h2>
+            
+            <!-- Bloc 3 étapes -->
+            <div class="bg-gray-50 py-12 px-6 rounded-xl mb-12">
+                <h3 class="text-3xl font-semibold mb-8 text-center text-gray-800">Comment ça marche ?</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-primary-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">Envoyer sa demande</h4>
+                        <p class="text-gray-600">Dis ce que tu cherches dans WhatsApp</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-primary-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">Préciser ville, livraison, budget</h4>
+                        <p class="text-gray-600">Réponds aux questions du bot</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-primary-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">Recevoir des vendeurs</h4>
+                        <p class="text-gray-600">Discute directement avec les vendeurs vérifiés</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grille de produits exemple -->
+            <div>
+                <h3 class="text-3xl font-semibold mb-8 text-gray-800">Produits populaires</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200">
+                        <div class="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4"></div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">Produit Exemple 1</h4>
+                        <p class="text-primary-600 font-bold text-lg mb-4">250 000 FCFA</p>
+                        <button class="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Discuter avec le bot
+                        </button>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200">
+                        <div class="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4"></div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">Produit Exemple 2</h4>
+                        <p class="text-primary-600 font-bold text-lg mb-4">180 000 FCFA</p>
+                        <button class="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Discuter avec le bot
+                        </button>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-200">
+                        <div class="w-full h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4"></div>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-800">Produit Exemple 3</h4>
+                        <p class="text-primary-600 font-bold text-lg mb-4">320 000 FCFA</p>
+                        <button class="w-full bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Discuter avec le bot
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">wa-catalog</h4>
+                    <p class="text-gray-400 text-sm">Le premier assistant shopping WhatsApp en Afrique.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Comment ça marche</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Catégories</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Aide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Légal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Mentions légales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">CGU</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Confidentialité</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>WhatsApp: +229 99 32 30 73</li>
+                        <li>Email: support@wa-catalog.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+                © 2024 wa-catalog. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

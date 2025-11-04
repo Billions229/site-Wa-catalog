@@ -1,0 +1,350 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2025-01-27",
+  "platform_info": {
+    "name": "wa-catalog",
+    "description": "Plateforme de mise en relation acheteurs-vendeurs au Bénin via WhatsApp",
+    "service_type": "Annuaire intelligent de vendeurs",
+    "coverage": ["Tout le Bénin"],
+    "status": "En phase de lancement",
+    "contact_support": "+22999323073",
+    "website": "https://wa-catalog.com"
+  },
+  
+  "faqs": [
+    {
+      "id": "faq_001",
+      "question": "C'est quoi wa-catalog ?",
+      "keywords": ["c'est quoi", "qu'est-ce que", "définition", "expliquer", "wa-catalog", "plateforme", "c'est quoi ça", "qu'est ce que"],
+      "answer": "wa-catalog est une plateforme gratuite qui te permet de trouver des produits auprès de vendeurs vérifiés au Bénin. 🛍️\n\nTu envoies simplement ce que tu cherches par message, et je te présente les meilleurs vendeurs avec leurs contacts WhatsApp directs.\n\n✅ Pas d'intermédiaire\n✅ Pas de frais cachés\n✅ Juste une mise en relation efficace",
+      "follow_up_suggestions": [
+        "💡 Tu veux voir comment faire une recherche ?",
+        "💡 Je peux t'expliquer comment ça marche en détail"
+      ]
+    },
+    
+    {
+      "id": "faq_002",
+      "question": "Comment ça marche ?",
+      "keywords": ["comment ça marche", "fonctionnement", "utiliser", "comment faire", "mode d'emploi", "comment on fait", "comment utiliser"],
+      "answer": "C'est très simple ! Voici comment ça marche :\n\n1️⃣ Tu m'envoies ce que tu cherches (ex: 'iPhone 13', 'robe de soirée')\n2️⃣ Je cherche dans ma base de vendeurs vérifiés\n3️⃣ Je te montre les meilleurs résultats avec prix et contacts\n4️⃣ Tu cliques sur le lien WhatsApp du vendeur\n5️⃣ Tu discutes et négocies directement avec lui\n\n✅ Tu ne paies rien à wa-catalog, tout est gratuit !",
+      "follow_up_suggestions": [
+        "🔍 Tu veux essayer une recherche maintenant ?"
+      ]
+    },
+    
+    {
+      "id": "faq_003",
+      "question": "Comment faire une recherche ?",
+      "keywords": ["comment rechercher", "comment chercher", "comment faire une recherche", "lancer une recherche", "faire recherche", "comment on recherche", "comment on cherche"],
+      "answer": "Pour rechercher un produit, c'est très simple ! 🔍\n\n*Méthode 1 : Recherche directe*\nEnvoie-moi directement ce que tu cherches :\n• 'Je cherche un iPhone 13'\n• 'J'ai besoin de chaussures Nike'\n• 'Trouve-moi un ordinateur portable'\n\n*Méthode 2 : Nom du produit*\nTu peux aussi simplement envoyer :\n• 'iPhone 13'\n• 'Samsung Galaxy'\n• 'Sac à main'\n\n💡 *Astuce :* Plus tu es précis (marque, modèle, couleur), meilleurs seront les résultats !",
+      "follow_up_suggestions": [
+        "🔍 Tu veux essayer une recherche maintenant ?"
+      ]
+    },
+    
+    {
+      "id": "faq_004",
+      "question": "C'est gratuit ?",
+      "keywords": ["gratuit", "prix", "coûte", "payer", "frais", "combien", "tarif", "payant"],
+      "answer": "Oui, wa-catalog est 100% gratuit pour les acheteurs ! 🎉\n\nTu ne paies rien pour :\n• Faire des recherches\n• Contacter les vendeurs\n• Utiliser le service\n\nLes vendeurs peuvent avoir des frais de référencement, mais pour toi c'est totalement gratuit.",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_005",
+      "question": "Comment devenir vendeur ?",
+      "keywords": ["devenir vendeur", "vendre", "inscription vendeur", "référencer produits", "ajouter ma boutique", "rejoindre", "comment vendre"],
+      "answer": "Pour référencer tes produits sur wa-catalog :\n\n1️⃣ Prépare tes infos :\n   • Liste de produits (nom, prix, catégorie)\n   • Photos de qualité\n   • Ton numéro WhatsApp Business\n\n2️⃣ Contacte-nous : +22999323073 (WhatsApp)\n\n3️⃣ Vérification : Notre équipe vérifie tes infos (24-48h)\n\n4️⃣ Référencement : Tes produits sont ajoutés\n\n🎁 OFFRE LANCEMENT : Gratuit pour les 50 premiers vendeurs !",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_006",
+      "question": "Vous gérez les paiements ?",
+      "keywords": ["paiement", "payer", "mobile money", "transaction", "argent", "carte bancaire", "moyen de paiement"],
+      "answer": "Non, wa-catalog ne gère PAS les paiements. 🚫💳\n\nNous sommes uniquement un service de mise en relation. Une fois que tu as trouvé un vendeur :\n\n✅ Tu discutes directement avec lui\n✅ Vous convenez du mode de paiement (Mobile Money, espèces, virement)\n✅ Vous réglez entre vous\n\nCela te permet de négocier librement et de payer comme tu préfères.",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_007",
+      "question": "Vous livrez ?",
+      "keywords": ["livraison", "livrer", "envoyer", "transport", "expédition", "delivery"],
+      "answer": "wa-catalog ne gère pas la livraison. 📦\n\nChaque vendeur a sa propre politique de livraison. Quand tu contactes un vendeur, tu discutes avec lui :\n\n• Des modalités de livraison\n• Des frais éventuels\n• Des délais\n• Du mode de livraison\n\n💡 Astuce : Certains vendeurs proposent la livraison gratuite dans Cotonou !",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_008",
+      "question": "Quelles catégories disponibles ?",
+      "keywords": ["catégories", "types de produits", "quoi trouver", "que vendez-vous", "produits disponibles", "quelles catégories"],
+      "answer": "Nos vendeurs proposent des produits dans plusieurs catégories :\n\n📱 *Électronique*\n   Téléphones, ordinateurs, accessoires\n\n👗 *Mode & Beauté*\n   Vêtements, chaussures, sacs, cosmétiques\n\n🏠 *Maison & Déco*\n   Meubles, décoration, électroménager\n\n🚗 *Auto & Moto*\n   Véhicules, pièces détachées\n\n🍽️ *Alimentation*\n   Restaurants, traiteurs, produits frais, spécialités locales\n\n📚 *Autres*\n   Livres, services, cours, etc.\n\n🔥 La liste s'agrandit chaque semaine !",
+      "follow_up_suggestions": [
+        "🔍 Tu cherches quelque chose dans une catégorie particulière ?"
+      ]
+    },
+    
+    {
+      "id": "faq_009",
+      "question": "Vous êtes fiables ?",
+      "keywords": ["fiable", "arnaque", "confiance", "sécurisé", "sûr", "sécurité", "confiant"],
+      "answer": "wa-catalog vérifie tous les vendeurs avant de les référencer. ✅\n\nCependant, nous sommes un service de mise en relation, pas une boutique. Notre rôle est de te connecter avec des vendeurs sérieux.\n\n⚠️ *CONSEILS DE SÉCURITÉ :*\n• Vérifie le profil WhatsApp Business du vendeur\n• Demande des photos récentes du produit\n• Privilégie la remise en main propre au début\n• Méfie-toi des prix trop bas\n• Ne paie jamais avant d'avoir vu le produit (sauf si vendeur ultra vérifié)",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_010",
+      "question": "Que faire si problème avec vendeur ?",
+      "keywords": ["problème", "arnaque", "vendeur malhonnête", "plainte", "signaler", "litige", "probleme"],
+      "answer": "Si tu rencontres un problème avec un vendeur :\n\n1️⃣ Essaie d'abord de résoudre directement avec lui\n\n2️⃣ Si ça ne marche pas, contacte notre équipe :\n   📞 +22999323073 (WhatsApp)\n\n3️⃣ Fournis les détails :\n   • Captures d'écran\n   • Numéro du vendeur\n   • Nature du problème\n\n4️⃣ Nous enquêterons et prendrons les mesures appropriées\n\n⚖️ Nous prenons très au sérieux la qualité de notre réseau.",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_011",
+      "question": "Disponible dans toutes les villes ?",
+      "keywords": ["villes", "localisation", "où", "disponibilité géographique", "ma ville", "quelle ville"],
+      "answer": "Actuellement, wa-catalog est principalement actif à :\n\n🏙️ Cotonou (majorité des vendeurs)\n🏙️ Porto-Novo\n🏙️ Parakou\n🏙️ Abomey-Calavi\n\n🚀 Nous travaillons à étendre le service à d'autres villes du Bénin.\n\n💡 Tu peux quand même faire des recherches : certains vendeurs livrent dans tout le pays !",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_012",
+      "question": "Puis-je négocier les prix ?",
+      "keywords": ["négocier", "négociation", "baisser le prix", "rabais", "réduction", "negocier"],
+      "answer": "Oui, absolument ! 💰\n\nwa-catalog te met en contact direct avec les vendeurs. Une fois que tu cliques sur le lien WhatsApp :\n\n✅ Tu discutes directement avec le vendeur\n✅ Tu peux négocier le prix\n✅ Tu peux demander des réductions pour achats multiples\n✅ Tu t'arranges comme tu veux\n\nC'est l'un des gros avantages de notre plateforme : la liberté totale de négociation !",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_013",
+      "question": "Les produits sont neufs ou d'occasion ?",
+      "keywords": ["neuf", "occasion", "seconde main", "état", "usagé", "usage"],
+      "answer": "Ça dépend du vendeur ! 📦\n\nSur wa-catalog, tu trouveras :\n• Des produits neufs\n• Des produits d'occasion\n• Les deux selon les vendeurs\n\n💡 Astuce : Quand tu vois un produit qui t'intéresse, vérifie la description. Et quand tu contactes le vendeur, demande-lui l'état précis du produit et des photos récentes.",
+      "follow_up_suggestions": []
+    },
+    
+    {
+      "id": "faq_014",
+      "question": "Je suis un vendeur, comment ça marche ?",
+      "keywords": ["je suis un vendeur", "vendeur comment ça marche", "vendeur comment faire", "suis vendeur", "en tant que vendeur", "vendeur ici"],
+      "answer": "Parfait ! En tant que vendeur, voici comment wa-catalog peut t'aider : 🏪\n\n📈 **Avantages pour toi :**\n• Plus de visibilité pour tes produits\n• Clients qualifiés qui cherchent activement\n• Pas d'intermédiaire dans tes ventes\n• Tu gardes 100% de tes profits\n\n🔄 **Comment ça marche :**\n1️⃣ Tu nous envoies ta liste de produits\n2️⃣ On les ajoute dans notre système\n3️⃣ Les clients nous contactent pour chercher\n4️⃣ On leur montre tes produits avec ton WhatsApp\n5️⃣ Ils te contactent directement pour acheter\n\n💰 **OFFRE LANCEMENT :** Gratuit pour les 50 premiers vendeurs !",
+      "follow_up_suggestions": [
+        "💡 Tu veux connaître les étapes d'inscription ?",
+        "💡 Tu as des questions sur les frais ?"
+      ]
+    },
+    
+    {
+      "id": "faq_015", 
+      "question": "Pourquoi m'inscrire sur wa-catalog ?",
+      "keywords": ["pourquoi m'inscrire", "pourquoi rejoindre", "avantages vendeur", "bénéfices vendeur", "intérêt vendeur"],
+      "answer": "Excellente question ! Voici pourquoi rejoindre wa-catalog : 🚀\n\n🎯 **Clients qualifiés :**\n• Les gens viennent chercher activement des produits\n• Pas de temps perdu avec des curieux\n• Demandes précises (marque, modèle, budget)\n\n📊 **Plus de ventes :**\n• Visibilité auprès de milliers d'acheteurs\n• Tes produits apparaissent dans les recherches\n• Recommandations personnalisées aux clients\n\n💰 **Économique :**\n• Pas de frais de publicité Facebook/Instagram\n• Pas de boutique physique obligatoire\n• ROI immédiat sur tes ventes\n\n🤝 **Support :**\n• Équipe dédiée pour t'aider\n• Gestion des réclamations clients\n• Conseils pour optimiser tes ventes",
+      "follow_up_suggestions": [
+        "💡 Tu veux voir des témoignages de vendeurs ?",
+        "💡 Combien ça coûte exactement ?"
+      ]
+    },
+    
+    {
+      "id": "faq_016",
+      "question": "Combien ça coûte pour un vendeur ?",
+      "keywords": ["combien ça coûte vendeur", "prix vendeur", "frais vendeur", "tarif vendeur", "coût inscription"],
+      "answer": "Transparence totale sur nos tarifs vendeurs : 💰\n\n🎁 **OFFRE LANCEMENT (Limitée) :**\n• **GRATUIT** pour les 50 premiers vendeurs\n• Inscription + 3 mois d'essai offerts\n• Aucun frais caché\n\n📊 **Tarifs normaux (après l'offre) :**\n• **Plan Starter :** 5 000 FCFA/mois\n  - Jusqu'à 20 produits\n  - Support de base\n\n• **Plan Business :** 10 000 FCFA/mois\n  - Produits illimités\n  - Support prioritaire\n  - Statistiques détaillées\n\n✅ **Ce qui est TOUJOURS gratuit :**\n• Pas de commission sur tes ventes (seulement une petite commission par lead)\n• Pas de frais de transaction\n• Tu gardes 100% de tes profits\n\n💡 Tu paies seulement la visibilité, pas tes ventes !",
+      "follow_up_suggestions": [
+        "💡 Comment s'inscrire maintenant ?",
+        "💡 Quels documents faut-il ?"
+      ]
+    },
+    
+    {
+      "id": "faq_017",
+      "question": "Comment s'inscrire comme vendeur ?",
+      "keywords": ["comment s'inscrire vendeur", "inscription vendeur", "devenir vendeur", "rejoindre vendeur", "étapes inscription"],
+      "answer": "C'est très simple ! Le processus ne se fait pas en discutant avec moi (le bot), mais via un formulaire. Rendez-vous sur **https://kloo.me/vendeur-wa-catalogue** pour vous inscrire. Si vous n'avez pas de catalogue, contactez le support au **+229 99 32 30 73**.",
+      "follow_up_suggestions": [
+        "💡 Tu veux commencer maintenant ?",
+        "💡 Quels types de produits acceptez-vous ?"
+      ]
+    },
+    
+    {
+      "id": "faq_018",
+      "question": "Quels produits puis-je vendre ?",
+      "keywords": ["quels produits vendre", "catégories acceptées", "produits autorisés", "que puis-je vendre", "restrictions produits"],
+      "answer": "Nous acceptons une large gamme de produits ! 🛍️\n\n✅ **Produits ACCEPTÉS :**\n📱 **Électronique :** Téléphones, ordinateurs, accessoires\n👗 **Mode :** Vêtements, chaussures, sacs, bijoux\n🏠 **Maison :** Meubles, décoration, électroménager\n🚗 **Auto/Moto :** Véhicules, pièces, accessoires\n💄 **Beauté :** Cosmétiques, parfums, soins\n🍽️ **Alimentation :** Restaurants, traiteurs, produits frais, épicerie\n📚 **Autres :** Livres, instruments, jouets\n\n❌ **Produits INTERDITS :**\n• Médicaments sans autorisation\n• Armes et objets dangereux\n• Produits contrefaits\n• Substances illégales\n• Produits périmés\n\n📋 **Conditions :**\n• Produits en bon état\n• Photos réelles (pas de stock photos)\n• Prix compétitifs\n• Description honnête\n\n💡 **Doute sur un produit ?** Contacte-nous avant !",
+      "follow_up_suggestions": [
+        "💡 Comment prendre de bonnes photos ?",
+        "💡 Comment fixer mes prix ?"
+      ]
+    },
+    
+    {
+      "id": "faq_019",
+      "question": "Comment les clients me trouvent ?",
+      "keywords": ["comment clients me trouvent", "visibilité", "référencement", "comment ça marche côté client"],
+      "answer": "Excellente question ! Voici comment tes produits deviennent visibles : 🔍\n\n👥 **C’est l’équipe wa-catalog qui attire les clients dans le bot** (publicité, réseaux, bouche-à-oreille).\n\n🤖 **Système de recherche intelligent :**\n• Client écrit : 'Je cherche un iPhone 13'\n• Notre bot analyse sa demande\n• Il trouve tes produits correspondants\n• Il présente tes infos avec ton WhatsApp\n\n📊 **Critères de classement :**\n1️⃣ **Correspondance :** Produit exact demandé\n2️⃣ **Qualité :** Photos et descriptions complètes\n3️⃣ **Prix :** Compétitif dans ta catégorie\n4️⃣ **Localisation :** Proximité avec le client\n5️⃣ **Abonnement :** Les abonnés peuvent être mis en avant dans le top 3\n6️⃣ **Réactivité :** Réponses rapides aux clients\n7️⃣ **Évaluations :** Satisfaction client (bientôt)\n\n🎯 **Optimisation :**\n• Utilise des mots-clés populaires\n• Mets à jour tes stocks régulièrement\n• Réponds vite aux clients\n• Prix attractifs\n\n📈 **Résultat :** Pour apparaître dans le top 3, privilégie la qualité, de bons prix, une localisation stratégique et pense à l’abonnement Business si tu veux booster ta visibilité !",
+      "follow_up_suggestions": [
+        "💡 Comment optimiser mes descriptions ?",
+        "💡 Combien de clients par mois ?"
+      ]
+    },
+    
+    {
+      "id": "faq_020",
+      "question": "Comment contacter un vendeur ?",
+      "keywords": ["comment contacter vendeur", "parler au vendeur", "joindre vendeur", "contact vendeur"],
+      "answer": "Super simple ! Voici comment contacter un vendeur : 📞\n\n🔍 **Après une recherche :**\n1️⃣ Je te montre les produits trouvés\n2️⃣ Chaque produit a un lien WhatsApp\n3️⃣ Tu cliques sur le lien du vendeur qui t'intéresse\n4️⃣ WhatsApp s'ouvre automatiquement\n5️⃣ Tu discutes directement avec lui !\n\n💡 **Conseils pour bien démarrer :**\n• Dis bonjour poliment\n• Mentionne le produit qui t'intéresse\n• Pose tes questions (état, prix, livraison)\n• Négocie si tu veux\n\n✅ **Exemple de premier message :**\n'Bonjour ! Je vous contacte via wa-catalog pour l'iPhone 13 à 450k. Est-il toujours disponible ?'",
+      "follow_up_suggestions": [
+        "💡 Comment négocier efficacement ?",
+        "💡 Que faire si le vendeur ne répond pas ?"
+      ]
+    },
+    
+    {
+      "id": "faq_021",
+      "question": "Que faire si le vendeur ne répond pas ?",
+      "keywords": ["vendeur ne répond pas", "pas de réponse", "vendeur inactif", "vendeur muet"],
+      "answer": "Pas de panique ! Voici quoi faire : ⏰\n\n⏱️ **Délais normaux :**\n• **1-2h :** Normal en journée\n• **3-6h :** Acceptable (il peut être occupé)\n• **24h+ :** Problématique\n\n🔄 **Actions à prendre :**\n1️⃣ **Patience :** Attends au moins 3h\n2️⃣ **Relance polie :** Un message courtois\n3️⃣ **Autres vendeurs :** Cherche le même produit\n4️⃣ **Signalement :** Contacte-nous si 48h+\n\n📞 **Nous contacter :**\n• WhatsApp : +22999323073\n• On vérifie le statut du vendeur\n• On te propose des alternatives\n\n💡 **Astuce :** Contacte toujours 2-3 vendeurs pour le même produit, ça augmente tes chances !",
+      "follow_up_suggestions": [
+        "💡 Comment trouver d'autres vendeurs ?",
+        "💡 Comment signaler un problème ?"
+      ]
+    },
+    
+    {
+      "id": "faq_022",
+      "question": "Les prix sont-ils négociables ?",
+      "keywords": ["prix négociables", "peut-on négocier", "baisser le prix", "marchander", "réduction possible"],
+      "answer": "Oui, la plupart du temps ! 💰\n\n✅ **Négociation possible :**\n• 90% des vendeurs acceptent de négocier\n• Surtout pour les achats multiples\n• Ou si tu paies cash immédiatement\n\n🎯 **Conseils pour bien négocier :**\n• Sois poli et respectueux\n• Propose un prix raisonnable\n• Justifie ta demande (achat multiple, cash, etc.)\n• Montre que tu es sérieux\n\n💡 **Phrases qui marchent :**\n• 'Quel est votre dernier prix ?'\n• 'Si je prends 2, vous me faites combien ?'\n• 'Je paie cash aujourd'hui, on peut s'arranger ?'\n\n❌ **À éviter :**\n• Proposer des prix ridicules\n• Être agressif ou impoli\n• Marchander sur des prix déjà très bas",
+      "follow_up_suggestions": [
+        "💡 Comment reconnaître un bon prix ?",
+        "💡 Quand ne pas négocier ?"
+      ]
+    },
+    
+    {
+      "id": "faq_023",
+      "question": "Comment vérifier la qualité d'un produit ?",
+      "keywords": ["vérifier qualité", "contrôler produit", "authentique", "vrai produit", "pas contrefait"],
+      "answer": "Excellente question ! Voici comment bien vérifier : 🔍\n\n📱 **Avant l'achat :**\n• Demande des photos récentes et détaillées\n• Vérifie les numéros de série (si applicable)\n• Pose des questions précises sur l'état\n• Demande une vidéo du produit en marche\n\n🤝 **Lors de la rencontre :**\n• Teste le produit avant de payer\n• Vérifie l'emballage et accessoires\n• Compare avec les photos reçues\n• Prends ton temps, ne te précipite pas\n\n🚩 **Signaux d'alarme :**\n• Prix anormalement bas\n• Vendeur pressé ou évasif\n• Pas de photos détaillées\n• Refuse de te laisser tester\n• Demande paiement avant rencontre\n\n✅ **Bon vendeur :**\n• Photos claires et multiples\n• Répond à toutes tes questions\n• Accepte que tu testes\n• Transparent sur les défauts éventuels",
+      "follow_up_suggestions": [
+        "💡 Comment reconnaître un produit contrefait ?",
+        "💡 Où faire la transaction en sécurité ?"
+      ]
+    },
+    
+    {
+      "id": "faq_024",
+      "question": "Où rencontrer le vendeur en sécurité ?",
+      "keywords": ["où rencontrer", "lieu sûr", "sécurité rencontre", "endroit sécurisé", "lieu de rencontre"],
+      "answer": "La sécurité d'abord ! Voici les meilleurs endroits : 🛡️\n\n✅ **Lieux SÉCURISÉS :**\n🏪 **Centres commerciaux :**\n• Carrefour Cotonou, Erevan Plaza\n• Beaucoup de monde, caméras\n• Parking sécurisé\n\n🏦 **Devant les banques :**\n• Sécurité 24h/24\n• Caméras de surveillance\n• Foule en journée\n\n☕ **Cafés/Restaurants populaires :**\n• Ambiance détendue\n• Témoins présents\n• Éclairage correct\n\n❌ **À ÉVITER :**\n• Domiciles (le tien ou le sien)\n• Rues isolées ou sombres\n• Parkings vides\n• Endroits sans témoins\n\n💡 **Conseils bonus :**\n• Rencontre en journée (9h-18h)\n• Viens accompagné si gros achat\n• Préviens quelqu'un de ta sortie\n• Aie la monnaie exacte",
+      "follow_up_suggestions": [
+        "💡 Comment payer en sécurité ?",
+        "💡 Que faire si problème pendant l'achat ?"
+      ]
+    },
+    
+    {
+      "id": "faq_025",
+      "question": "Quels moyens de paiement acceptés ?",
+      "keywords": ["moyens de paiement", "comment payer", "mobile money", "espèces", "carte bancaire", "paiement"],
+      "answer": "Ça dépend de chaque vendeur ! Voici les options courantes : 💳\n\n💰 **ESPÈCES (le plus courant) :**\n• Accepté par 100% des vendeurs\n• Transaction immédiate\n• Pas de frais\n• Pense à la monnaie exacte\n\n📱 **MOBILE MONEY :**\n• MTN Money, Moov Money\n• Pratique pour gros montants\n• Frais selon opérateur\n• Vérification instantanée\n\n🏦 **VIREMENT BANCAIRE :**\n• Pour achats importants (voitures, etc.)\n• Plus sécurisé\n• Délai de traitement\n• Frais bancaires\n\n💳 **CARTES :**\n• Rare, seulement gros vendeurs\n• Frais supplémentaires possibles\n\n💡 **Conseil :** Demande toujours au vendeur ses préférences de paiement avant la rencontre !",
+      "follow_up_suggestions": [
+        "💡 Comment éviter les arnaques au paiement ?",
+        "💡 Que faire si le paiement mobile échoue ?"
+      ]
+    },
+    
+    {
+      "id": "faq_026",
+      "question": "Puis-je vendre de la nourriture ?",
+      "keywords": ["vendre nourriture", "vendeur nourriture", "bouffe", "restaurant", "traiteur", "alimentation", "manger", "repas"],
+      "answer": "Oui, absolument ! La catégorie alimentation est très demandée ! 🍽️\n\n✅ **Types acceptés :**\n🍳 **Restaurants :** Plats préparés, menus\n🎂 **Traiteurs :** Événements, fêtes, mariages\n🥘 **Cuisine maison :** Spécialités locales\n🛒 **Épicerie :** Produits frais, conserves\n🥤 **Boissons :** Jus naturels, sodas locaux\n\n📋 **Conditions spéciales :**\n• Respecter les normes d'hygiène\n• Photos appétissantes des plats\n• Indiquer les ingrédients principaux\n• Préciser si livraison possible\n• Mentionner les allergènes éventuels\n\n💡 **Conseils :**\n• Spécialise-toi (ex: 'Attiéké de qualité')\n• Propose des menus variés\n• Indique tes horaires de service\n• Mets en avant tes spécialités\n\n🔥 **Très demandé :** Plats béninois authentiques !",
+      "follow_up_suggestions": [
+        "💡 Comment prendre de belles photos de plats ?",
+        "💡 Quelles informations mettre dans mes descriptions ?"
+      ]
+    }
+  ],
+  
+  "system_limitations": [
+    {
+      "limitation": "Pas de système d'avis clients",
+      "keywords": ["avis", "notation", "note", "évaluation", "review"],
+      "response": "Le système d'avis et de notation des vendeurs n'est pas encore disponible. Cette fonctionnalité sera ajoutée prochainement. 🔜\n\nPour l'instant, les vendeurs sont classés selon leur statut de vérification et leur ancienneté."
+    },
+    {
+      "limitation": "Pas de gestion de paiement",
+      "keywords": ["paiement intégré", "payer sur la plateforme"],
+      "response": "wa-catalog ne gère pas les paiements. Toutes les transactions financières se font directement entre toi et le vendeur. 💳"
+    },
+    {
+      "limitation": "Pas de livraison intégrée",
+      "keywords": ["livraison intégrée", "vous livrez"],
+      "response": "Nous ne gérons pas la livraison. Chaque vendeur a sa propre politique de livraison. 📦"
+    },
+    {
+      "limitation": "Pas de garantie produit",
+      "keywords": ["garantie", "warranty", "retour"],
+      "response": "wa-catalog ne fournit pas de garantie sur les produits. C'est à négocier directement avec le vendeur. 🔄"
+    }
+  ],
+  
+  "out_of_scope": {
+    "responses": [
+      {
+        "triggers": ["météo", "temps qu'il fait", "température", "pluie", "weather"],
+        "response": "Je ne peux pas donner d'informations sur la météo 🌤️\n\nJe suis spécialisé dans la recherche de produits chez des vendeurs béninois. Par contre, si tu cherches un parapluie ou un ventilateur, je peux t'aider ! 😄"
+      },
+      {
+        "triggers": ["blague", "raconte une blague", "histoires drôles", "humour", "joke"],
+        "response": "Haha, je ne suis pas très doué pour les blagues ! 😅\n\nMon talent c'est plutôt de trouver des bons vendeurs. Tu cherches quelque chose en particulier ?"
+      },
+      {
+        "triggers": ["actualités", "news", "nouvelles", "information"],
+        "response": "Je ne suis pas au courant de l'actualité 📰\n\nJe me concentre sur les produits et vendeurs disponibles sur wa-catalog. Si tu cherches un produit spécifique par contre, je suis ton gars !"
+      },
+      {
+        "triggers": ["politique", "élections", "gouvernement", "président"],
+        "response": "Je préfère ne pas aborder les sujets politiques.\n\nJe suis là pour t'aider à trouver des produits ! 🛍️ Tu as besoin de quelque chose ?"
+      },
+      {
+        "triggers": ["recette", "cuisine", "cuisiner", "plat", "recipe"],
+        "response": "Je ne connais pas de recettes de cuisine 👨‍🍳\n\nMais si tu cherches des ustensiles de cuisine ou des ingrédients, je peux te trouver des vendeurs !"
+      }
+    ]
+  },
+  
+  "conversation_templates": {
+    "greeting_responses": [
+      "Salut ! 👋 Je suis l'assistant wa-catalog. Je t'aide à trouver des produits chez des vendeurs vérifiés au Bénin. Qu'est-ce que tu cherches aujourd'hui ?",
+      "Hello ! Content de te parler 😊 Tu cherches un produit en particulier ? Ou tu veux d'abord comprendre comment wa-catalog fonctionne ?",
+      "Bienvenue sur wa-catalog ! Je suis là pour t'aider à trouver ce dont tu as besoin. Dis-moi ce que tu cherches ! 🛍️"
+    ],
+    
+    "thank_you_responses": [
+      "De rien ! 😊 N'hésite pas à revenir si tu as besoin. Bonne journée ! 👋",
+      "Avec plaisir ! À bientôt sur wa-catalog 🛍️",
+      "Content d'avoir pu t'aider ! Reviens quand tu veux 😊"
+    ],
+    
+    "goodbye_responses": [
+      "À bientôt ! 👋 Reviens quand tu veux !",
+      "Au revoir ! N'hésite pas à me contacter si besoin 😊",
+      "À plus tard ! Bonne continuation 🙂"
+    ],
+    
+    "fallback_responses": [
+      "Hmm, je ne suis pas sûr de bien comprendre 🤔\n\nTu peux reformuler ? Ou si tu veux savoir comment je fonctionne, demande-moi 'comment ça marche'.",
+      "Je n'ai pas bien saisi. Tu cherches un produit spécifique ? Ou tu as une question sur wa-catalog ?",
+      "Désolé, je n'ai pas la réponse à cette question précise.\n\nSi tu cherches un produit, dis-moi simplement ce que c'est et je te trouve les meilleurs vendeurs ! 🔍"
+    ],
+    
+    "no_results_responses": [
+      "Je n'ai pas trouvé de produit correspondant à ta recherche 😕\n\nTu peux :\n• Reformuler ta recherche\n• Essayer des mots différents\n• Me dire la catégorie générale (ex: 'électronique', 'mode')",
+      "Aucun résultat pour cette recherche actuellement 😔\n\nQuelques suggestions :\n• Vérifie l'orthographe\n• Utilise des termes plus généraux\n• Essaie une autre catégorie"
+    ]
+  }
+}
