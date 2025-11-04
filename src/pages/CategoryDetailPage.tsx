@@ -517,8 +517,8 @@ export default function CategoryDetailPage() {
                 </p>
               </div>
 
-              {/* How it works - Non sticky */}
-              <div className="bg-white rounded-2xl shadow-md p-6">
+              {/* How it works - Sticky en bas */}
+              <div className="bg-white rounded-2xl shadow-md p-6 sticky bottom-6">
                 <h3 className="font-bold text-gray-900 mb-4 text-lg">Comment ça marche ?</h3>
                 <ol className="space-y-4">
                   <li className="flex gap-3">
