@@ -124,26 +124,26 @@ export default function CategoryProductsPage() {
         <ProductCarousel title={`Produits ${categoryName}`} products={products} onProductClick={handleProductClick} />
 
         {/* CTA Section */}
-        <div className="mt-12 bg-gradient-to-br from-primary-600 to-emerald-700 rounded-2xl p-10 md:p-12 text-center shadow-2xl border-4 border-primary-400/20">
-          <div className="bg-white/10 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <MessageCircle className="w-10 h-10 text-white" />
+        <div className="mt-12 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 rounded-2xl p-10 md:p-12 text-center shadow-2xl border-4 border-green-300/30">
+          <div className="bg-white/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-white/30">
+            <MessageCircle className="w-10 h-10 text-white drop-shadow-lg" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-white drop-shadow-md">
             Vous cherchez un produit spécifique ?
           </h2>
-          <p className="text-white text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-white/95 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-sm">
             Ces exemples ne représentent qu'une petite partie de notre catalogue. Pour accéder à tous les produits
             disponibles en temps réel et contacter directement les vendeurs, discutez avec notre bot sur WhatsApp.
           </p>
           <button
             onClick={handleWhatsAppClick}
-            className="bg-white text-primary-700 px-10 py-5 rounded-xl font-extrabold text-xl transition-all hover:scale-105 shadow-2xl hover:shadow-white/30 inline-flex items-center gap-3 group"
+            className="bg-white text-green-700 px-10 py-5 rounded-xl font-extrabold text-xl transition-all hover:scale-105 shadow-2xl hover:shadow-white/50 inline-flex items-center gap-3 group"
           >
             <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
             Discuter avec le bot maintenant
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </button>
-          <p className="mt-6 text-white/90 text-sm font-semibold">
+          <p className="mt-6 text-white text-sm font-bold drop-shadow-sm">
             ⚡ Gratuit pour les acheteurs • 💯 Réponse en 30 secondes
           </p>
         </div>
