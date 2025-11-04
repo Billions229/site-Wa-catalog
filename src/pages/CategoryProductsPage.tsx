@@ -1,7 +1,7 @@
 "use client"
 
 import { useParams, Link } from "react-router-dom"
-import { MessageCircle, AlertCircle, Filter } from "lucide-react"
+import { MessageCircle, AlertCircle, Filter, ArrowRight } from "lucide-react"
 import { ProductCarousel, type Product } from "@/components/ui/product-carousel"
 import { mockProductsByCategory } from "@/data/mockProducts"
 
@@ -124,19 +124,28 @@ export default function CategoryProductsPage() {
         <ProductCarousel title={`Produits ${categoryName}`} products={products} onProductClick={handleProductClick} />
 
         {/* CTA Section */}
-        <div className="mt-12 bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 text-center text-white">
-          <MessageCircle className="w-16 h-16 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold mb-2">Vous cherchez un produit spécifique ?</h2>
-          <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+        <div className="mt-12 bg-gradient-to-br from-primary-600 to-emerald-700 rounded-2xl p-10 md:p-12 text-center shadow-2xl border-4 border-primary-400/20">
+          <div className="bg-white/10 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <MessageCircle className="w-10 h-10 text-white" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-white">
+            Vous cherchez un produit spécifique ?
+          </h2>
+          <p className="text-white text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed font-medium">
             Ces exemples ne représentent qu'une petite partie de notre catalogue. Pour accéder à tous les produits
             disponibles en temps réel et contacter directement les vendeurs, discutez avec notre bot sur WhatsApp.
           </p>
           <button
             onClick={handleWhatsAppClick}
-            className="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 shadow-lg"
+            className="bg-white text-primary-700 px-10 py-5 rounded-xl font-extrabold text-xl transition-all hover:scale-105 shadow-2xl hover:shadow-white/30 inline-flex items-center gap-3 group"
           >
+            <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
             Discuter avec le bot maintenant
+            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </button>
+          <p className="mt-6 text-white/90 text-sm font-semibold">
+            ⚡ Gratuit pour les acheteurs • 💯 Réponse en 30 secondes
+          </p>
         </div>
       </div>
 

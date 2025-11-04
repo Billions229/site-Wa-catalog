@@ -384,10 +384,10 @@ export default function CategoryDetailPage() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center max-w-4xl">
                 <button
                   onClick={() => handleWhatsAppClick()}
-                  className="inline-flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-white/30 hover:scale-105 group"
+                  className="inline-flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-white/30 hover:scale-105 group w-full sm:w-auto"
                 >
                   <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                   Discuter avec le bot
@@ -396,10 +396,10 @@ export default function CategoryDetailPage() {
                 
                 <Link
                   to={`/categories/${slug}/produits`}
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/50 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl w-full sm:w-auto justify-center"
                 >
                   <ShoppingBag className="w-6 h-6" />
-                  Voir des exemples de produits
+                  Voir les produits disponibles
                 </Link>
               </div>
 
@@ -517,8 +517,8 @@ export default function CategoryDetailPage() {
                 </p>
               </div>
 
-              {/* How it works - Fixed */}
-              <div className="bg-white rounded-2xl shadow-md p-6 sticky top-[28rem]">
+              {/* How it works - Non sticky */}
+              <div className="bg-white rounded-2xl shadow-md p-6">
                 <h3 className="font-bold text-gray-900 mb-4 text-lg">Comment ça marche ?</h3>
                 <ol className="space-y-4">
                   <li className="flex gap-3">
