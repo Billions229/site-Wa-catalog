@@ -28,22 +28,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-white border-t border-gray-200 text-gray-700">
-      <div className="max-w-7xl mx-auto px-6 pt-12 pb-6 text-center border-b border-gray-200">
-        <a
-          href="https://kloo.me/bot-wa-catalogue"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-        >
-          <MessageCircle className="w-6 h-6" />
-          Discuter avec le bot
-        </a>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+          {/* Logo and Contact Info - Takes 2 columns on large screens */}
+          <div className="md:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-2 mb-6">
               <img 
                 src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png" 
                 alt="wa-catalog logo" 
@@ -58,7 +48,7 @@ export default function Footer() {
                 <div className="bg-primary/20 p-2 rounded-full">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
-                <a href="https://wa.me/22999323073" className="hover:text-primary transition-colors font-medium">
+                <a href="https://wa.me/22999323073" className="hover:text-primary transition-colors font-medium text-sm">
                   +229 99 32 30 73
                 </a>
               </div>
@@ -66,7 +56,7 @@ export default function Footer() {
                 <div className="bg-primary/20 p-2 rounded-full">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <a href="mailto:support@wa-catalog.com" className="hover:text-primary transition-colors font-medium">
+                <a href="mailto:support@wa-catalog.com" className="hover:text-primary transition-colors font-medium text-sm">
                   support@wa-catalog.com
                 </a>
               </div>
@@ -74,14 +64,15 @@ export default function Footer() {
                 <div className="bg-primary/20 p-2 rounded-full">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <span className="font-medium">Cotonou, Bénin</span>
+                <span className="font-medium text-sm">Cotonou, Bénin</span>
               </div>
             </div>
           </div>
 
+          {/* Plateforme Section */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-4">Plateforme</h3>
-            <ul className="space-y-2">
+            <h3 className="text-gray-900 font-semibold mb-4 text-base">Plateforme</h3>
+            <ul className="space-y-2.5">
               {footerLinks.plateforme.map((link) => (
                 <li key={link.name}>
                   <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
@@ -92,9 +83,10 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Vendeurs Section */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-4">Vendeurs</h3>
-            <ul className="space-y-2">
+            <h3 className="text-gray-900 font-semibold mb-4 text-base">Vendeurs</h3>
+            <ul className="space-y-2.5">
               {footerLinks.vendeurs.map((link) => (
                 <li key={link.name}>
                   <a
@@ -112,33 +104,53 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-gray-900 font-semibold mb-4">Aide</h3>
-            <ul className="space-y-2">
-              {footerLinks.aide.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Aide and Légal Sections - Stacked */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-gray-900 font-semibold mb-4 text-base">Aide</h3>
+              <ul className="space-y-2.5">
+                {footerLinks.aide.map((link) => (
+                  <li key={link.name}>
+                    <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="text-gray-900 font-semibold mb-4">Légal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h3 className="text-gray-900 font-semibold mb-4 text-base">Légal</h3>
+              <ul className="space-y-2.5">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.name}>
+                    <a href={link.href} className="text-sm text-gray-600 hover:text-primary transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
+        {/* CTA Section */}
+        <div className="border-t border-gray-200 pt-8 mb-8">
+          <div className="flex flex-col items-center text-center">
+            <h3 className="text-gray-900 font-semibold mb-4 text-lg">Prêt à commencer ?</h3>
+            <a
+              href="https://kloo.me/bot-wa-catalogue"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary-600 to-emerald-600 hover:from-primary-700 hover:to-emerald-700 text-white px-8 py-4 rounded-lg font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Discuter avec le bot
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
         <div className="border-t border-gray-200 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-600">© 2025 wa-catalog. Tous droits réservés.</p>
