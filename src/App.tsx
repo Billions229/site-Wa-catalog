@@ -8,6 +8,7 @@ import CategoryDetailPage from "./pages/CategoryDetailPage"
 import CategoryProductsPage from "./pages/CategoryProductsPage"
 import HowItWorksPage from "./pages/HowItWorksPage"
 import BecomeVendorPage from "./pages/BecomeVendorPage"
+import ReviewsPage from "./pages/ReviewsPage"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/categories/:slug/produits" element={<CategoryProductsPage />} />
           <Route path="/comment-ca-marche" element={<HowItWorksPage />} />
           <Route path="/devenir-vendeur" element={<BecomeVendorPage />} />
+          <Route path="/avis-client" element={<ReviewsPage />} />
         </Routes>
         <Footer />
         <ScrollToTop />

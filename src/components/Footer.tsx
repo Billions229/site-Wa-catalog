@@ -4,6 +4,7 @@ export default function Footer() {
   const footerLinks = {
     plateforme: [
       { name: "Comment ça marche", href: "/comment-ca-marche" },
+      { name: "Avis client", href: "/avis-client" },
       { name: "Catégories", href: "/categories" },
       { name: "Statistiques", href: "/statistiques" },
       { name: "Tarifs", href: "/tarifs" },
