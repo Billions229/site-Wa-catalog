@@ -36,38 +36,38 @@ export default function VendorStats({ vendor, stats }: VendorStatsProps) {
   };
 
   return (
-    <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl shadow-lg p-8 mb-8 border border-primary-200">
-      <div className="flex items-start gap-6 mb-6">
+    <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 border border-primary-200 overflow-x-hidden">
+      <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-6">
         <img
           src={vendor.avatar_url || 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop'}
           alt={vendor.name}
-          className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg"
+          className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-white shadow-lg flex-shrink-0"
         />
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-3xl font-bold text-gray-900">{vendor.name}</h2>
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 break-words">{vendor.name}</h2>
             {vendor.verified && (
-              <CheckCircle className="w-6 h-6 text-primary-600" />
+              <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600 flex-shrink-0" />
             )}
           </div>
-          <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
             {vendor.location && (
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 whitespace-nowrap">
                 📍 {vendor.location}
               </span>
             )}
             {vendor.whatsapp && (
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 whitespace-nowrap">
                 📱 WhatsApp disponible
               </span>
             )}
           </div>
-          <div className="flex items-center gap-3">
-            {renderStars(Math.round(stats.averageRating))}
-            <span className="text-2xl font-bold text-gray-900">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="flex-shrink-0">{renderStars(Math.round(stats.averageRating))}</div>
+            <span className="text-xl sm:text-2xl font-bold text-gray-900 whitespace-nowrap">
               {stats.averageRating.toFixed(1)}/5
             </span>
-            <span className="text-gray-600">({stats.totalReviews} avis)</span>
+            <span className="text-gray-600 whitespace-nowrap">({stats.totalReviews} avis)</span>
           </div>
         </div>
       </div>
@@ -98,24 +98,24 @@ export default function VendorStats({ vendor, stats }: VendorStatsProps) {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl p-6 shadow-sm">
-        <h3 className="font-semibold text-gray-900 mb-4">Répartition des notes</h3>
+      <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm overflow-x-hidden">
+        <h3 className="font-semibold text-gray-900 mb-4 text-base sm:text-lg">Répartition des notes</h3>
         <div className="space-y-3">
           {[5, 4, 3, 2, 1].map((rating) => {
             const count = stats.ratingDistribution[rating as keyof typeof stats.ratingDistribution];
             const percentage = getRatingPercentage(count);
             return (
-              <div key={rating} className="flex items-center gap-4">
-                <div className="flex items-center gap-1 w-24">
-                  <span className="text-yellow-400">{'⭐'.repeat(rating)}</span>
+              <div key={rating} className="flex items-center gap-2 sm:gap-4 min-w-0">
+                <div className="flex items-center gap-1 w-16 sm:w-24 flex-shrink-0">
+                  <span className="text-yellow-400 text-sm sm:text-base">{'⭐'.repeat(rating)}</span>
                 </div>
-                <div className="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div className="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden min-w-0">
                   <div
                     className="bg-yellow-400 h-full transition-all duration-300"
                     style={{ width: `${percentage}%` }}
                   />
                 </div>
-                <span className="text-sm font-medium text-gray-700 w-20 text-right">
+                <span className="text-xs sm:text-sm font-medium text-gray-700 w-16 sm:w-20 text-right flex-shrink-0 whitespace-nowrap">
                   {count} ({percentage}%)
                 </span>
               </div>

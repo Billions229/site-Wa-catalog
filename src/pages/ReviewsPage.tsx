@@ -206,7 +206,7 @@ export default function ReviewsPage() {
   const vendorStats = selectedVendor ? getVendorStats(selectedVendor.id) : null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <div className="relative bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white py-16 md:py-20 overflow-hidden">
         {/* Image background avec overlay - optimisé mobile/desktop */}
         <div 
@@ -238,8 +238,8 @@ export default function ReviewsPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 overflow-x-hidden">
+        <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 mb-8 overflow-x-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
             <div className="lg:col-span-2">
               <div className="relative">
@@ -257,7 +257,7 @@ export default function ReviewsPage() {
             <select
               value={filters.vendorId}
               onChange={(e) => setFilters({ ...filters, vendorId: e.target.value })}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
             >
               <option value="">Tous les vendeurs</option>
               {vendors.map((vendor) => (
@@ -270,7 +270,7 @@ export default function ReviewsPage() {
             <select
               value={filters.category}
               onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
             >
               <option value="">Toutes les catégories</option>
               {CATEGORIES.map((cat) => (
@@ -283,7 +283,7 @@ export default function ReviewsPage() {
             <select
               value={filters.rating}
               onChange={(e) => setFilters({ ...filters, rating: e.target.value })}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
             >
               <option value="">Toutes les notes</option>
               <option value="5">⭐⭐⭐⭐⭐ (5)</option>
@@ -294,13 +294,13 @@ export default function ReviewsPage() {
             </select>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Filter className="w-5 h-5 text-gray-400" />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Filter className="w-5 h-5 text-gray-400 flex-shrink-0" />
               <select
                 value={filters.sortBy}
                 onChange={(e) => setFilters({ ...filters, sortBy: e.target.value })}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="flex-1 sm:flex-initial px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm sm:text-base"
               >
                 <option value="recent">Plus récent</option>
                 <option value="oldest">Plus ancien</option>
@@ -311,7 +311,7 @@ export default function ReviewsPage() {
 
             <button
               onClick={resetFilters}
-              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 font-medium"
+              className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap"
             >
               Réinitialiser filtres
             </button>
