@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', "*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -30,15 +31,23 @@ export default {
           900: '#7c2d12',
           950: '#431407',
         },
+        // Couleurs du template blog
+        dark: "#1b1b1b",
+        light: "#fff",
+        accentDark: "#ffdb4d",
+        gray: "#747474",
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+        mr: ["var(--font-mr)", "Manrope", "sans-serif"],
+        in: ["var(--font-in)", "Inter", "sans-serif"],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
+        roll: "roll 24s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -53,8 +62,18 @@ export default {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.05)' },
         },
+        roll: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      screens: {
+        sxl: "1180px",
+        xs: "480px",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

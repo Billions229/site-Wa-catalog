@@ -153,8 +153,10 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
 
       if (insertError) throw insertError;
 
+      // Appeler onSuccess avant onClose pour permettre à la page parente de gérer l'affichage
       onSuccess();
-      onClose();
+      // Ne pas appeler onClose ici, laisser la page parente décider
+      // onClose() sera appelé seulement si l'utilisateur clique sur Annuler
     } catch (err) {
       setError('Erreur lors de la soumission de l\'avis');
       console.error(err);
@@ -178,10 +180,28 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
       </div>
 
       {preselectedVendor && (
-        <div className="bg-primary-50 border-l-4 border-primary-500 p-4 m-6">
-          <p className="text-sm text-primary-700">
-            Vous êtes invité à évaluer <span className="font-bold">{preselectedVendor.name}</span>
-          </p>
+        <div className="bg-gradient-to-r from-primary-50 to-primary-100 border-l-4 border-primary-500 p-5 m-6 rounded-r-lg">
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0">
+              <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
+                <span className="text-white text-lg">✓</span>
+              </div>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-base font-bold text-primary-900 mb-1">
+                Vendeur présélectionné
+              </h3>
+              <p className="text-sm text-primary-700">
+                Vous êtes invité à évaluer <span className="font-bold text-primary-900">{preselectedVendor.name}</span>
+                {preselectedVendor.location && (
+                  <span className="text-primary-600"> • {preselectedVendor.location}</span>
+                )}
+              </p>
+              <p className="text-xs text-primary-600 mt-2">
+                Le nom du vendeur est déjà sélectionné. Vous pouvez maintenant remplir votre avis.
+              </p>
+            </div>
+          </div>
         </div>
       )}
 

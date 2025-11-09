@@ -4,6 +4,7 @@ export default function Footer() {
   const footerLinks = {
     plateforme: [
       { name: "Comment ça marche", href: "/comment-ca-marche" },
+      { name: "Blog", href: "/blog" },
       { name: "Avis client", href: "/avis-client" },
       { name: "Catégories", href: "/categories" },
       { name: "Statistiques", href: "/statistiques" },
@@ -12,6 +13,7 @@ export default function Footer() {
     vendeurs: [
       { name: "Devenir vendeur", href: "/devenir-vendeur" },
       { name: "Inscription", href: "https://kloo.me/vendeur-wa-catalogue" },
+      { name: "Lien personnalisé pour avis", href: "/vendeur/lien-avis" },
     ],
     aide: [
       { name: "FAQ", href: "/aide/faq" },

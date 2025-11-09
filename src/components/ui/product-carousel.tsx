@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight, Clock } from "lucide-react"
+import { ChevronLeft, ChevronRight, Clock, MessageCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 // --- TYPE DEFINITIONS ---
@@ -82,9 +82,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onCTAClick }) => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => onCTAClick(product)}
-              className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+              className="rounded-lg bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-600 hover:shadow-md flex items-center gap-2"
             >
-              Discuter
+              <MessageCircle className="w-4 h-4" />
+              Discuter avec le bot
             </motion.button>
           </div>
         </div>
@@ -186,8 +187,8 @@ export const ProductCarousel = React.forwardRef<HTMLDivElement, ProductCarouselP
                 disabled={isAtStart}
                 aria-label="Scroll left"
                 className={cn(
-                  "absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border bg-background p-2 shadow-md transition-opacity duration-300 disabled:opacity-0",
-                  "hover:bg-accent focus:outline-none",
+                  "absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary-500 text-white p-3 shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
+                  "hover:bg-primary-600 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
                 )}
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -198,8 +199,8 @@ export const ProductCarousel = React.forwardRef<HTMLDivElement, ProductCarouselP
                 disabled={isAtEnd}
                 aria-label="Scroll right"
                 className={cn(
-                  "absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border bg-background p-2 shadow-md transition-opacity duration-300 disabled:opacity-0",
-                  "hover:bg-accent focus:outline-none",
+                  "absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary-500 text-white p-3 shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
+                  "hover:bg-primary-600 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2",
                 )}
               >
                 <ChevronRight className="h-6 w-6" />

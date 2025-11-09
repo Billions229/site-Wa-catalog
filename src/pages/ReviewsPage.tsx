@@ -1,21 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
-import { Search, Filter, Star, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Search, Filter, Star, MessageSquare, ChevronLeft, ChevronRight, Link2 } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
 import { supabase, Review, Vendor, CATEGORIES } from '../lib/supabase';
 import ReviewCard from '../components/ReviewCard';
-import ReviewForm from '../components/ReviewForm';
 import VendorStats from '../components/VendorStats';
 
 const ITEMS_PER_PAGE = 10;
 
 export default function ReviewsPage() {
+  const navigate = useNavigate();
   const [reviews, setReviews] = useState<Review[]>([]);
   const [vendors, setVendors] = useState<Vendor[]>([]);
   const [filteredReviews, setFilteredReviews] = useState<Review[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [showForm, setShowForm] = useState(false);
-  const [selectedVendorId, setSelectedVendorId] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
-  const formRef = useRef<HTMLDivElement>(null);
 
   const [filters, setFilters] = useState({
     search: '',
@@ -26,15 +24,17 @@ export default function ReviewsPage() {
   });
 
   useEffect(() => {
-    loadData();
-
+    // Si un vendeur est spécifié dans l'URL, rediriger vers la page de soumission
     const urlParams = new URLSearchParams(window.location.search);
-    const vendorParam = urlParams.get('vendeur');
-    if (vendorParam) {
-      setSelectedVendorId(vendorParam);
-      setShowForm(true);
+    const vendorId = urlParams.get('vendeur') || urlParams.get('vendor');
+    if (vendorId) {
+      // Rediriger vers la page de soumission avec les paramètres
+      navigate(`/soumissions-avis?${urlParams.toString()}`, { replace: true });
+      return;
     }
-  }, []);
+    
+    loadData();
+  }, [navigate]);
 
   useEffect(() => {
     applyFilters();
@@ -187,14 +187,7 @@ export default function ReviewsPage() {
   };
 
   const handleShowForm = () => {
-    setShowForm(true);
-    setTimeout(() => {
-      if (formRef.current) {
-        const yOffset = -80; // Offset pour compenser le header sticky
-        const y = formRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    }, 100);
+    navigate('/soumissions-avis');
   };
 
   const totalPages = Math.ceil(filteredReviews.length / ITEMS_PER_PAGE);
@@ -228,13 +221,25 @@ export default function ReviewsPage() {
           <p className="text-xl text-primary-50 mb-8 max-w-2xl mx-auto">
             Transparence et crédibilité - Tous les avis sont automatiquement publiés
           </p>
-          <button
-            onClick={handleShowForm}
-            className="bg-white text-primary-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-50 transition-colors shadow-lg flex items-center gap-2 mx-auto"
-          >
-            <MessageSquare className="w-6 h-6" />
-            Donner mon avis
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+            <button
+              onClick={handleShowForm}
+              className="bg-white text-primary-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-50 transition-all shadow-lg hover:shadow-xl flex items-center gap-2 transform hover:scale-105"
+            >
+              <MessageSquare className="w-6 h-6" />
+              Donner mon avis
+            </button>
+            <Link
+              to="/vendeur/lien-avis"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center gap-2 border-2 border-white/50 transform hover:scale-105"
+            >
+              <Link2 className="w-6 h-6" />
+              <span className="hidden sm:inline">Vendeur ? </span>Créez votre lien personnalisé
+            </Link>
+          </div>
+          <p className="text-sm text-primary-100/80 max-w-xl mx-auto">
+            Les vendeurs peuvent générer un lien unique pour inviter leurs clients à laisser un avis
+          </p>
         </div>
       </div>
 
@@ -409,22 +414,6 @@ export default function ReviewsPage() {
               </div>
             )}
           </>
-        )}
-      </div>
-
-      <div ref={formRef} className="scroll-mt-24">
-        {showForm && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ReviewForm
-              vendors={vendors}
-              preselectedVendorId={selectedVendorId}
-              onClose={() => {
-                setShowForm(false);
-                setSelectedVendorId('');
-              }}
-              onSuccess={loadData}
-            />
-          </div>
         )}
       </div>
     </div>

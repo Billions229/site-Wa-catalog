@@ -44,6 +44,10 @@ export default function Navbar() {
       url: '/comment-ca-marche',
     },
     {
+      title: 'Blog',
+      url: '/blog',
+    },
+    {
       title: 'Avis client',
       url: '/avis-client',
     },

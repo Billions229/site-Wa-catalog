@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { 
   MessageCircle, 
   Smartphone, 
@@ -17,9 +17,25 @@ import SEO from "@/components/SEO"
 
 export default function HowItWorksPage() {
   const [activeTab, setActiveTab] = useState<"buyer" | "seller">("buyer")
+  const stepsSectionRef = useRef<HTMLDivElement>(null)
 
   const handleWhatsAppClick = () => {
     window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
+  }
+
+  const handleTabChange = (tab: "buyer" | "seller") => {
+    setActiveTab(tab)
+    // Délai pour permettre au changement de contenu de se faire
+    setTimeout(() => {
+      if (stepsSectionRef.current) {
+        const headerHeight = 80 // Hauteur approximative du header pour compenser
+        const yOffset = stepsSectionRef.current.getBoundingClientRect().top + window.pageYOffset - headerHeight
+        window.scrollTo({
+          top: yOffset,
+          behavior: 'smooth'
+        })
+      }
+    }, 100)
   }
 
   const buyerSteps = [
@@ -223,48 +239,75 @@ export default function HowItWorksPage() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/30 shadow-2xl">
-              <HeadphonesIcon className="w-10 h-10 text-white drop-shadow-lg" />
+        <div 
+          className="relative text-white py-20 overflow-hidden"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1920&h=1080&fit=crop&q=80)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Overlay avec gradient pour assurer la lisibilité */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/90 via-primary-600/85 to-primary-700/90 backdrop-blur-[1px]"></div>
+          
+          {/* Contenu */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-6 border-2 border-white/30 shadow-2xl hover:scale-110 transition-transform duration-300">
+                <HeadphonesIcon className="w-10 h-10 text-white drop-shadow-lg" />
+              </div>
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md">
+                Comment ça marche ?
+              </h1>
+              <p className="text-xl md:text-2xl text-primary-50 max-w-3xl mx-auto leading-relaxed">
+                5 étapes simples pour acheter ou vendre sur wa-catalog, la première marketplace WhatsApp au Bénin
+              </p>
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md">
-              Comment ça marche ?
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-50 max-w-3xl mx-auto leading-relaxed">
-              5 étapes simples pour acheter ou vendre sur wa-catalog, la première marketplace WhatsApp au Bénin
-            </p>
-          </div>
-        </div>
 
-        {/* Tabs */}
-        <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-md">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center gap-4 py-6">
+            {/* Tabs intégrés dans le header */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12 pb-4">
               <button
-                onClick={() => setActiveTab("buyer")}
-                className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 ${
+                onClick={() => handleTabChange("buyer")}
+                className={`w-full sm:w-auto min-w-[280px] px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 ease-in-out transform relative overflow-hidden group border-2 ${
                   activeTab === "buyer"
-                    ? "bg-primary-500 text-white shadow-lg shadow-primary-500/30 scale-105"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+                    ? "bg-white text-primary-600 border-white shadow-2xl scale-105"
+                    : "bg-white/10 backdrop-blur-md text-white border-white/30 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <ShoppingBag className="w-6 h-6" />
-                  <span>Pour les Acheteurs</span>
+                {/* Effet de brillance au hover */}
+                <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ${activeTab === "buyer" ? "translate-x-full" : ""}`}></div>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 relative z-10">
+                  <div className={`p-3 rounded-xl transition-all duration-300 ${
+                    activeTab === "buyer" 
+                      ? "bg-primary-100 text-primary-600" 
+                      : "bg-white/20 text-white"
+                  }`}>
+                    <ShoppingBag className="w-6 h-6" />
+                  </div>
+                  <span className="font-extrabold">Pour les Acheteurs</span>
                 </div>
               </button>
+              
               <button
-                onClick={() => setActiveTab("seller")}
-                className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 ${
+                onClick={() => handleTabChange("seller")}
+                className={`w-full sm:w-auto min-w-[280px] px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 ease-in-out transform relative overflow-hidden group border-2 ${
                   activeTab === "seller"
-                    ? "bg-primary-500 text-white shadow-lg shadow-primary-500/30 scale-105"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+                    ? "bg-white text-primary-600 border-white shadow-2xl scale-105"
+                    : "bg-white/10 backdrop-blur-md text-white border-white/30 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <BadgeCheck className="w-6 h-6" />
-                  <span>Pour les Vendeurs</span>
+                {/* Effet de brillance au hover */}
+                <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ${activeTab === "seller" ? "translate-x-full" : ""}`}></div>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 relative z-10">
+                  <div className={`p-3 rounded-xl transition-all duration-300 ${
+                    activeTab === "seller" 
+                      ? "bg-primary-100 text-primary-600" 
+                      : "bg-white/20 text-white"
+                  }`}>
+                    <BadgeCheck className="w-6 h-6" />
+                  </div>
+                  <span className="font-extrabold">Pour les Vendeurs</span>
                 </div>
               </button>
             </div>
@@ -272,7 +315,7 @@ export default function HowItWorksPage() {
         </div>
 
         {/* Steps */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div ref={stepsSectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="space-y-24">
             {steps.map((step, index) => {
               const IconComponent = step.icon

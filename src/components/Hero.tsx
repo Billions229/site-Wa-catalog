@@ -58,12 +58,12 @@ export default function Hero() {
       <div className="flex flex-col items-center justify-center px-6 pt-24 pb-16 max-w-7xl mx-auto">
         {/* Main Heading */}
         <div className="text-center mb-12">
-          <h1 className="text-6xl md:text-7xl xl:text-8xl font-thin text-gray-900 leading-tight mb-6 tracking-tight">
-            Trouve n'importe quel produit, <br />
-            sur WhatsApp
+          <h1 className="text-6xl md:text-7xl xl:text-8xl font-thin text-gray-900 leading-[1.3] mb-8 tracking-tight">
+            <span className="block mb-3">La recherche de produits et services,</span>
+            <span className="block">réinventée</span>
           </h1>
-          <p className="text-lg font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Dis ce que tu cherches, on te montre les vendeurs vérifiés
+          <p className="text-lg font-light text-gray-600 max-w-2xl mx-auto leading-relaxed mt-8">
+            Discutes avec notre bot et trouve tout ce dont tu as besoin avec une précision chirurgicale
           </p>
         </div>
 

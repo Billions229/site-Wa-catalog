@@ -1,7 +1,7 @@
 "use client"
 
 import { useParams, Link } from "react-router-dom"
-import { MessageCircle, AlertCircle, Filter, ArrowRight } from "lucide-react"
+import { MessageCircle, Filter, ArrowRight } from "lucide-react"
 import { ProductCarousel, type Product } from "@/components/ui/product-carousel"
 import { mockProductsByCategory } from "@/data/mockProducts"
 
@@ -22,7 +22,20 @@ export default function CategoryProductsPage() {
   const products = slug ? mockProductsByCategory[slug] || [] : []
 
   const handleProductClick = (product: Product) => {
-    window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
+    // Créer un message prérempli contextuel avec le produit selon les spécifications du README
+    const messageParts = []
+    messageParts.push(`Je cherche ${product.name}`)
+    if (categoryName) {
+      messageParts.push(`(catégorie ${categoryName})`)
+    }
+    if (product.city) {
+      messageParts.push(`à ${product.city}`)
+    }
+    if (product.price) {
+      messageParts.push(`Budget: ${product.price} FCFA`)
+    }
+    const message = encodeURIComponent(messageParts.join(" - "))
+    window.open(`https://kloo.me/bot-wa-catalogue?text=${message}`, "_blank", "noopener,noreferrer")
   }
 
   const handleWhatsAppClick = () => {
@@ -65,8 +78,8 @@ export default function CategoryProductsPage() {
                 <span className="text-gray-900 font-medium">Produits</span>
               </nav>
               <h1 className="text-3xl font-bold text-gray-900">{categoryName} - Produits</h1>
-              <p className="text-gray-600 mt-2">
-                Exemples de produits disponibles. Pour voir tous les produits en temps réel, discutez avec le bot.
+              <p className="text-gray-600 mt-2 font-medium">
+                Découvrez une sélection de produits disponibles. Pour accéder à tous les produits en temps réel et contacter directement les vendeurs, discutez avec notre bot sur WhatsApp.
               </p>
             </div>
             <button
@@ -76,19 +89,6 @@ export default function CategoryProductsPage() {
               <MessageCircle className="w-5 h-5" />
               Discuter avec le bot
             </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Alert Banner */}
-      <div className="bg-orange-50 border-b border-orange-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-orange-800">
-              <strong>Important:</strong> Ces produits sont des exemples éditoriaux. La recherche en temps réel et la
-              mise en relation avec les vendeurs se font exclusivement dans WhatsApp via notre bot.
-            </div>
           </div>
         </div>
       </div>
@@ -130,8 +130,8 @@ export default function CategoryProductsPage() {
             Vous cherchez un produit spécifique ?
           </h2>
           <p className="text-white/95 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-sm">
-            Ces exemples ne représentent qu'une petite partie de notre catalogue. Pour accéder à tous les produits
-            disponibles en temps réel et contacter directement les vendeurs, discutez avec notre bot sur WhatsApp.
+            Cette sélection ne représente qu'une partie de notre catalogue. Pour accéder à tous les produits
+            disponibles en temps réel et contacter directement les vendeurs vérifiés, discutez avec notre bot sur WhatsApp.
           </p>
           <button
             onClick={handleWhatsAppClick}

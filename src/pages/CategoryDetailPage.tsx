@@ -284,7 +284,8 @@ export default function CategoryDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const category = slug ? categoryData[slug] : null
 
-  const handleWhatsAppClick = (specificItem?: string) => {
+  // Fonction pour ouvrir WhatsApp avec un message prédéfini
+  const handleWhatsAppClick = (_specificItem?: string) => {
     window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
@@ -522,7 +523,7 @@ export default function CategoryDetailPage() {
                 
                 <button
                   onClick={() => handleWhatsAppClick()}
-                  className="w-full bg-white text-gray-900 px-6 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl mb-4 group"
+                  className="w-full bg-green-500 text-white px-6 py-4 rounded-xl font-bold transition-all hover:scale-105 hover:bg-green-600 shadow-2xl mb-4 group"
                 >
                   <div className="flex items-center justify-center gap-2">
                     <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />

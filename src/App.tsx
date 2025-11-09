@@ -9,6 +9,15 @@ import CategoryProductsPage from "./pages/CategoryProductsPage"
 import HowItWorksPage from "./pages/HowItWorksPage"
 import BecomeVendorPage from "./pages/BecomeVendorPage"
 import ReviewsPage from "./pages/ReviewsPage"
+import SubmitReviewPage from "./pages/SubmitReviewPage"
+import VendorReviewLinkPage from "./pages/VendorReviewLinkPage"
+import ContactPage from "./pages/ContactPage"
+import MentionsLegalesPage from "./pages/MentionsLegalesPage"
+import CGUPage from "./pages/CGUPage"
+import ConfidentialitePage from "./pages/ConfidentialitePage"
+import CookiesPage from "./pages/CookiesPage"
+import BlogPage from "./pages/BlogPage"
+import BlogDetailPage from "./pages/BlogDetailPage"
 
 function App() {
   return (
@@ -23,6 +32,15 @@ function App() {
           <Route path="/comment-ca-marche" element={<HowItWorksPage />} />
           <Route path="/devenir-vendeur" element={<BecomeVendorPage />} />
           <Route path="/avis-client" element={<ReviewsPage />} />
+          <Route path="/soumissions-avis" element={<SubmitReviewPage />} />
+          <Route path="/vendeur/lien-avis" element={<VendorReviewLinkPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+          <Route path="/cgu" element={<CGUPage />} />
+          <Route path="/confidentialite" element={<ConfidentialitePage />} />
+          <Route path="/cookies" element={<CookiesPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
         </Routes>
         <Footer />
         <ScrollToTop />
