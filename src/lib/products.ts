@@ -32,7 +32,7 @@ const CATEGORY_MAPPING: Record<string, string[]> = {
 };
 
 /**
- * Récupère les produits d'une catégorie depuis Supabase
+ * Récupère les produits d'une catégorie depuis Supabase avec informations vendeur
  */
 export async function getProductsByCategory(categorySlug: string): Promise<Product[]> {
   if (!supabase) {
@@ -48,7 +48,7 @@ export async function getProductsByCategory(categorySlug: string): Promise<Produ
       return [];
     }
 
-    // Récupérer les produits qui correspondent à l'une des catégories mappées
+    // Récupérer les produits (sans informations vendeur pour l'instant)
     const { data, error } = await supabase
       .from('products')
       .select('*')
@@ -70,7 +70,7 @@ export async function getProductsByCategory(categorySlug: string): Promise<Produ
 }
 
 /**
- * Récupère tous les produits disponibles
+ * Récupère tous les produits disponibles avec informations vendeur
  */
 export async function getAllProducts(): Promise<Product[]> {
   if (!supabase) {

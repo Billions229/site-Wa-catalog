@@ -32,7 +32,7 @@ export default function CategoryProductsPage() {
         const dbProducts = await getProductsByCategory(slug)
         
         // Transform database products to match Product interface
-        const transformedProducts: Product[] = dbProducts.map((p) => ({
+        const transformedProducts: Product[] = dbProducts.map((p: any) => ({
           id: p.id,
           name: p.name,
           price: p.price,

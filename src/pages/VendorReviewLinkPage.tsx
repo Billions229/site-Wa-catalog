@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Copy, Check, Link2, MessageSquare, Share2, Star } from 'lucide-react';
+import { Copy, Check, Link2, MessageSquare, Share2, Star, Loader2 } from 'lucide-react';
 import { supabase, Vendor } from '../lib/supabase';
 import { generateReviewLink, copyToClipboard } from '../utils/reviewLinks';
+import { createVendorReviewUrl, generateVendorSlug } from '../lib/shortUrl';
 
 export default function VendorReviewLinkPage() {
   const [vendors, setVendors] = useState<Vendor[]>([]);
   const [selectedVendor, setSelectedVendor] = useState<Vendor | null>(null);
   const [reviewLink, setReviewLink] = useState<string>('');
+  const [shortUrl, setShortUrl] = useState<string>('');
   const [copied, setCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isCreatingShortUrl, setIsCreatingShortUrl] = useState(false);
 
   useEffect(() => {
     loadVendors();
@@ -18,10 +21,27 @@ export default function VendorReviewLinkPage() {
     if (selectedVendor) {
       const link = generateReviewLink(selectedVendor.id, selectedVendor.name);
       setReviewLink(link);
+      // Créer automatiquement le lien court
+      createShortUrlForVendor(selectedVendor);
     } else {
       setReviewLink('');
+      setShortUrl('');
     }
   }, [selectedVendor]);
+
+  const createShortUrlForVendor = async (vendor: Vendor) => {
+    setIsCreatingShortUrl(true);
+    try {
+      const result = await createVendorReviewUrl(vendor.id, vendor.name);
+      setShortUrl(result.shortUrl);
+    } catch (error) {
+      console.error('Erreur lors de la création du lien court:', error);
+      // En cas d'erreur, utiliser le lien long
+      setShortUrl(reviewLink);
+    } finally {
+      setIsCreatingShortUrl(false);
+    }
+  };
 
   const loadVendors = async () => {
     setIsLoading(true);
@@ -47,10 +67,10 @@ export default function VendorReviewLinkPage() {
     }
   };
 
-  const handleCopyLink = async () => {
-    if (!reviewLink) return;
+  const handleCopySpecificLink = async (link: string) => {
+    if (!link) return;
     
-    const success = await copyToClipboard(reviewLink);
+    const success = await copyToClipboard(link);
     if (success) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -62,7 +82,7 @@ export default function VendorReviewLinkPage() {
     
     const message = `Bonjour ! J'espère que vous êtes satisfait de votre achat. Pourriez-vous prendre un moment pour laisser un avis sur votre expérience ? Cela m'aiderait énormément ! 
 
-👉 ${reviewLink}
+👉 ${shortUrl || reviewLink}
 
 Merci beaucoup ! 🙏`;
     
@@ -77,7 +97,7 @@ Merci beaucoup ! 🙏`;
     ? `https://wa.me/?text=${encodeURIComponent(
         `Bonjour ! J'espère que vous êtes satisfait de votre achat. Pourriez-vous prendre un moment pour laisser un avis sur votre expérience ? Cela m'aiderait énormément ! 
 
-👉 ${reviewLink}
+👉 ${shortUrl || reviewLink}
 
 Merci beaucoup ! 🙏`
       )}`
@@ -162,27 +182,71 @@ Merci beaucoup ! 🙏`
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <div className="flex-1 bg-gray-50 border border-gray-300 rounded-lg p-4 break-all">
-                  <p className="text-sm text-gray-600 mb-1">Votre lien :</p>
-                  <p className="text-primary-600 font-mono text-sm">{reviewLink}</p>
+              {/* Lien court */}
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">🔗 Lien court automatique</h3>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex-1 bg-green-50 border border-green-300 rounded-lg p-4 break-all">
+                    <p className="text-sm text-green-700 mb-1">Lien raccourci :</p>
+                    {isCreatingShortUrl ? (
+                      <div className="flex items-center gap-2">
+                        <Loader2 className="w-4 h-4 animate-spin text-green-600" />
+                        <span className="text-sm text-green-600">Création du lien court...</span>
+                      </div>
+                    ) : (
+                      <p className="text-green-700 font-mono text-sm font-semibold">
+                        {shortUrl || 'Erreur lors de la création'}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => handleCopySpecificLink(shortUrl)}
+                    disabled={isCreatingShortUrl || !shortUrl}
+                    className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-5 h-5" />
+                        Copié !
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-5 h-5" />
+                        Copier lien court
+                      </>
+                    )}
+                  </button>
                 </div>
-                <button
-                  onClick={handleCopyLink}
-                  className="px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-5 h-5" />
-                      Copié !
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-5 h-5" />
-                      Copier le lien
-                    </>
-                  )}
-                </button>
+                <p className="text-xs text-gray-500 mt-2">
+                  Format: vendeur.dpdns.org/avis-{generateVendorSlug(selectedVendor.name)}
+                </p>
+              </div>
+
+              {/* Lien long (fallback) */}
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">🔗 Lien complet (fallback)</h3>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex-1 bg-gray-50 border border-gray-300 rounded-lg p-4 break-all">
+                    <p className="text-sm text-gray-600 mb-1">Lien complet :</p>
+                    <p className="text-primary-600 font-mono text-sm">{reviewLink}</p>
+                  </div>
+                  <button
+                    onClick={() => handleCopySpecificLink(reviewLink)}
+                    className="px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-5 h-5" />
+                        Copié !
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-5 h-5" />
+                        Copier lien complet
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -197,7 +261,7 @@ Merci beaucoup ! 🙏`
                 <p className="text-gray-700 whitespace-pre-line text-sm">
                   Bonjour ! J'espère que vous êtes satisfait de votre achat. Pourriez-vous prendre un moment pour laisser un avis sur votre expérience ? Cela m'aiderait énormément ! 
 
-👉 {reviewLink}
+👉 {shortUrl || reviewLink}
 
 Merci beaucoup ! 🙏
                 </p>

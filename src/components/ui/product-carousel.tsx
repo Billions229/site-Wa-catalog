@@ -83,33 +83,53 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onCTAClick }) => {
         </div>
 
         {/* Product Details */}
-        <div className="flex flex-col space-y-3 p-4">
+        <div className="flex flex-col space-y-3 p-4 flex-1">
+          {/* Header avec localisation */}
           <div className="flex items-center justify-between text-xs text-muted-foreground">
             <div className="flex items-center space-x-1">
               <Clock className="h-3 w-3" />
-              <span>{product.deliveryTime}</span>
+              <span>{product.deliveryTime || "Selon vendeur"}</span>
             </div>
             {product.city && <span className="font-medium">{product.city}</span>}
           </div>
-          <h3 className="line-clamp-2 h-10 text-sm font-medium text-foreground">{product.name}</h3>
-          {product.condition && <span className="text-xs text-muted-foreground">{product.condition}</span>}
 
-          {/* Pricing and Add Button */}
-          <div className="flex items-center justify-between pt-2">
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-foreground">
+          {/* Titre produit */}
+          <h3 className="text-sm font-semibold text-foreground leading-tight">{product.name}</h3>
+          
+          {/* Description complète */}
+          {product.description && (
+            <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+              {product.description}
+            </p>
+          )}
+
+          {/* Condition */}
+          {product.condition && (
+            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-700 w-fit">
+              {product.condition}
+            </span>
+          )}
+
+
+          {/* Prix et bouton - maintenant en bas */}
+          <div className="mt-auto pt-3 space-y-3">
+            <div className="text-center">
+              <span className="text-lg font-bold text-foreground block">
                 {product.price_min && product.price_max && product.price_min !== product.price_max
                   ? `${product.price_min.toLocaleString()} - ${product.price_max.toLocaleString()} FCFA`
                   : `${product.price.toLocaleString()} FCFA`}
               </span>
               {product.originalPrice && (
-                <span className="text-xs text-muted-foreground line-through">{product.originalPrice.toLocaleString()} FCFA</span>
+                <span className="text-xs text-muted-foreground line-through block">
+                  {product.originalPrice.toLocaleString()} FCFA
+                </span>
               )}
             </div>
+            
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => onCTAClick(product)}
-              className="rounded-lg bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-600 hover:shadow-md flex items-center gap-2"
+              className="w-full rounded-lg bg-primary-500 px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-600 hover:shadow-md flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
               Discuter avec le bot
