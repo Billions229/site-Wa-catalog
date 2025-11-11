@@ -46,9 +46,8 @@ export async function createShortUrl(options: CreateShortUrlOptions): Promise<Sh
   } catch (error: any) {
     console.error('Erreur lors de la création du lien court:', error);
     if (axios.isAxiosError(error)) {
-      throw new Error(
-        `Erreur API Shlink: ${error.response?.data?.detail || error.message}`
-      );
+      const errorMessage = error.response?.data?.detail || error.response?.data?.message || error.message;
+      throw new Error(errorMessage);
     }
     throw error;
   }
@@ -68,6 +67,15 @@ export function generateVendorSlug(vendorName: string): string {
 }
 
 /**
+ * Génère un slug unique en ajoutant un timestamp si nécessaire
+ */
+export function generateUniqueVendorSlug(vendorName: string): string {
+  const baseSlug = generateVendorSlug(vendorName);
+  const timestamp = Date.now().toString().slice(-6); // 6 derniers chiffres du timestamp
+  return `${baseSlug}-${timestamp}`;
+}
+
+/**
  * Crée un lien court pour les avis d'un vendeur
  */
 export async function createVendorReviewUrl(
@@ -75,14 +83,29 @@ export async function createVendorReviewUrl(
   vendorName: string
 ): Promise<ShortUrlResponse> {
   const longUrl = `${window.location.origin}/soumissions-avis?vendeur=${vendorId}&nom=${encodeURIComponent(vendorName)}`;
-  const customSlug = generateVendorSlug(vendorName);
   
-  return createShortUrl({
-    longUrl,
-    customSlug,
-    title: `Donner un avis - ${vendorName}`,
-    tags: ['avis', 'vendeur', vendorName.toLowerCase()],
-  });
+  // Essayer d'abord avec le slug simple, puis avec slug unique si déjà utilisé
+  try {
+    const customSlug = generateVendorSlug(vendorName);
+    return await createShortUrl({
+      longUrl,
+      customSlug,
+      title: `Donner un avis - ${vendorName}`,
+      tags: ['avis', 'vendeur', vendorName.toLowerCase()],
+    });
+  } catch (error: any) {
+    // Si le slug est déjà utilisé, essayer avec un slug unique
+    if (error.message?.includes('already in use') || error.message?.includes('400')) {
+      const uniqueSlug = generateUniqueVendorSlug(vendorName);
+      return await createShortUrl({
+        longUrl,
+        customSlug: uniqueSlug,
+        title: `Donner un avis - ${vendorName}`,
+        tags: ['avis', 'vendeur', vendorName.toLowerCase()],
+      });
+    }
+    throw error;
+  }
 }
 
 /**
