@@ -55,7 +55,7 @@ export default function Hero() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-100 via-primary-50 w-full overflow-hidden max-w-screen to-primary-100 relative">
       {/* Hero Content */}
-      <div className="flex flex-col items-center justify-center px-6 pt-24 pb-16 max-w-7xl mx-auto">
+      <div className="flex flex-col items-center justify-center px-6 pt-8 pb-16 max-w-7xl mx-auto">
         {/* Main Heading */}
         <div className="text-center mb-12">
           <h1 className="text-6xl md:text-7xl xl:text-8xl font-thin text-gray-900 leading-[1.3] mb-8 tracking-tight">

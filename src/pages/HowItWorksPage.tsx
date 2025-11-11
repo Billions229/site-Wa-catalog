@@ -71,7 +71,9 @@ export default function HowItWorksPage() {
         "💬 \"Bonjour, comment ça marche ?\"",
         "🤖 Le bot t'explique son fonctionnement",
         "🔍 \"Je cherche un iPhone 13\"",
-        "📱 Le bot comprend ta demande"
+        "📱 Le bot comprend ta demande",
+        "⚡ Fini les 80 statuts à regarder et les groupes saturés !",
+        "🎯 Recherche de précision au lieu du 'fouillage'"
       ]
     },
     {
@@ -150,7 +152,8 @@ export default function HowItWorksPage() {
         "✅ Si tu as déjà un catalogue WhatsApp Business : Remplis le formulaire",
         "📱 Fournis ton numéro WhatsApp et le lien de ton catalogue",
         "🆕 Pas de catalogue ? Contacte l'équipe au +229 99 32 30 73",
-        "🎁 Offre lancement : Gratuit pour les 50 premiers vendeurs"
+        "🎁 Offre lancement : Gratuit pour les 50 premiers vendeurs",
+        "💰 Accède aux campagnes publicitaires mutualisées (Facebook/Google)"
       ]
     },
     {
@@ -163,7 +166,9 @@ export default function HowItWorksPage() {
         "🔍 Vérification de la qualité des produits",
         "✅ Validation des catégories acceptées",
         "⚡ Indexation dans le bot (24-48h)",
-        "📧 Message de confirmation par WhatsApp"
+        "📧 Message de confirmation par WhatsApp",
+        "🌐 Création de ta page SEO sur wa-catalog.com (Pilier Visibilité)",
+        "🤖 Indexation pour les moteurs IA (ChatGPT, Gemini, etc.)"
       ]
     },
     {
@@ -177,7 +182,9 @@ export default function HowItWorksPage() {
         "📝 Descriptions détaillées (état, accessoires, garantie)",
         "💰 Prix compétitifs et à jour",
         "🏷️ Mots-clés pertinents dans les titres",
-        "🔄 Mises à jour régulières du stock"
+        "🔄 Mises à jour régulières du stock",
+        "⭐ Collecte d'avis clients (audio/vidéo) pour capital confiance",
+        "📝 Éligibilité aux articles sponsorisés (Top 10, guides d'achat)"
       ]
     },
     {
@@ -188,10 +195,12 @@ export default function HowItWorksPage() {
       image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop",
       details: [
         "📲 Notifications WhatsApp pour chaque lead",
-        "👥 Clients déjà intéressés par tes produits",
+        "👥 Clients déjà intéressés par tes produits (pré-qualifiés par IA)",
         "💬 Discussion directe avec les acheteurs",
-        "🎯 Taux de conversion élevé",
-        "💰 Paie uniquement pour les contacts reçus"
+        "🎯 Taux de conversion élevé grâce à la précision chirurgicale",
+        "💰 Paie uniquement pour les contacts reçus",
+        "⚡ Fini le 'fouillage' - tes clients te trouvent instantanément",
+        "🔧 Inclut services d'urgence (ex: mécanicien à 1h du matin)"
       ]
     },
     {
@@ -205,7 +214,9 @@ export default function HowItWorksPage() {
         "👀 Nombre de vues de tes produits",
         "📈 Clics et contacts générés",
         "🏆 Produits les plus recherchés",
-        "⭐ Badge \"Vendeur Vérifié\" après bonnes performances"
+        "⭐ Badge \"Vendeur Vérifié\" après bonnes performances",
+        "💬 Gestion des avis clients (ton capital confiance digital)",
+        "🔗 Lien personnalisé pour collecter des avis"
       ]
     }
   ]

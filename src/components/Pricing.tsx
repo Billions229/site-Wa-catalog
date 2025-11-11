@@ -3,18 +3,18 @@ import { PricingTable } from "@/components/ui/pricing-table"
 import type { PricingFeature, PricingPlan } from "@/components/ui/pricing-table"
 
 const features: PricingFeature[] = [
-  { name: "Produits référencés", included: "starter" },
-  { name: "Leads offerts", included: "starter" },
-  { name: "Visibilité recherche", included: "all" },
-  { name: "Position prioritaire", included: "pro" },
-  { name: "Badge vendeur vérifié", included: "pro" },
-  { name: "Statistiques basiques", included: "all" },
-  { name: "Analytics avancées", included: "pro" },
-  { name: "Notifications temps réel", included: "pro" },
-  { name: "Support prioritaire 24/7", included: "pro" },
-  { name: "Catalogue WhatsApp Business", included: "all" },
-  { name: "Accès bot wa-catalog", included: "all" },
-  { name: "Sans engagement", included: "all" },
+  { name: "💰 Génération de leads mutualisée (campagnes Facebook/Google)", included: "pro" },
+  { name: "🔍 Visibilité SEO & indexation IA (Google, LLMs)", included: "all" },
+  { name: "⭐ Badge Vendeur Vérifié (capital confiance)", included: "pro" },
+  { name: "📊 Système d'avis client (audio/vidéo)", included: "all" },
+  { name: "📝 Contenu marketing premium (articles sponsorisés)", included: "pro" },
+  { name: "🔧 Indexation services locaux (artisans, urgences)", included: "all" },
+  { name: "📱 Catalogue WhatsApp Business requis", included: "all" },
+  { name: "🎯 Leads qualifiés par conversation IA", included: "all" },
+  { name: "📈 Statistiques hebdomadaires WhatsApp", included: "all" },
+  { name: "💬 Assistance setup & accompagnement", included: "pro" },
+  { name: "🚀 Position prioritaire résultats recherche", included: "pro" },
+  { name: "✅ Sans engagement, pause possible", included: "all" },
 ]
 
 const plans: PricingPlan[] = [

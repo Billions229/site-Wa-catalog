@@ -1,9 +1,10 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { MessageCircle, Filter, ArrowRight } from "lucide-react"
 import { ProductCarousel, type Product } from "@/components/ui/product-carousel"
-import { mockProductsByCategory } from "@/data/mockProducts"
+import { getProductsByCategory } from "@/lib/products"
 
 const categoryNames: Record<string, string> = {
   electronique: "Électronique",
@@ -19,7 +20,41 @@ const categoryNames: Record<string, string> = {
 export default function CategoryProductsPage() {
   const { slug } = useParams<{ slug: string }>()
   const categoryName = slug ? categoryNames[slug] : null
-  const products = slug ? mockProductsByCategory[slug] || [] : []
+  const [products, setProducts] = useState<Product[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      if (!slug) return
+      
+      setIsLoading(true)
+      try {
+        const dbProducts = await getProductsByCategory(slug)
+        
+        // Transform database products to match Product interface
+        const transformedProducts: Product[] = dbProducts.map((p) => ({
+          id: p.id,
+          name: p.name,
+          price: p.price,
+          city: p.city || undefined,
+          condition: p.condition || "Neuf",
+          deliveryTime: "Livraison selon vendeur",
+          apercu_produit: p.apercu_produit || null,
+          description: p.description,
+          price_min: p.price_min,
+          price_max: p.price_max,
+        }))
+        
+        setProducts(transformedProducts)
+      } catch (error) {
+        console.error("Erreur lors du chargement des produits:", error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    loadProducts()
+  }, [slug])
 
   const handleProductClick = (product: Product) => {
     // Créer un message prérempli contextuel avec le produit selon les spécifications du README
@@ -42,7 +77,7 @@ export default function CategoryProductsPage() {
     window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
-  if (!categoryName || products.length === 0) {
+  if (!categoryName) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
@@ -50,6 +85,17 @@ export default function CategoryProductsPage() {
           <Link to="/categories" className="text-primary hover:text-primary/80">
             Retour aux catégories
           </Link>
+        </div>
+      </div>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block w-12 h-12 border-4 border-primary-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+          <p className="text-gray-600">Chargement des produits...</p>
         </div>
       </div>
     )
@@ -119,7 +165,24 @@ export default function CategoryProductsPage() {
 
       {/* Products */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ProductCarousel title={`Produits ${categoryName}`} products={products} onProductClick={handleProductClick} />
+        {products.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="text-6xl mb-4">📦</div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Aucun produit disponible pour le moment</h3>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">
+              Cette catégorie ne contient pas encore de produits. Discute avec notre bot pour trouver ce que tu cherches dans d'autres catégories !
+            </p>
+            <button
+              onClick={handleWhatsAppClick}
+              className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Discuter avec le bot
+            </button>
+          </div>
+        ) : (
+          <ProductCarousel title={`Produits ${categoryName}`} products={products} onProductClick={handleProductClick} />
+        )}
 
         {/* CTA Section */}
         <div className="mt-12 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 rounded-2xl p-10 md:p-12 text-center shadow-2xl border-4 border-green-300/30">

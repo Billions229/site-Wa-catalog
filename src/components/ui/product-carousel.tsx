@@ -9,14 +9,18 @@ import { cn } from "@/lib/utils"
 export interface Product {
   id: string | number
   name: string
-  quantity: string
+  quantity?: string
   price: number
   originalPrice?: number
   discount?: string
-  deliveryTime: string
-  imageUrl: string
+  deliveryTime?: string
+  imageUrl?: string
   city?: string
   condition?: string
+  description?: string | null
+  apercu_produit?: string | null
+  price_min?: number | null
+  price_max?: number | null
 }
 
 interface ProductCardProps {
@@ -45,13 +49,32 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onCTAClick }) => {
       className="group relative w-64 flex-shrink-0"
     >
       <div className="flex flex-col overflow-hidden rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:shadow-lg">
-        {/* Image and Discount Badge */}
+        {/* Image/Video and Discount Badge */}
         <div className="relative h-48 overflow-hidden bg-muted">
-          <img
-            src={product.imageUrl || "/placeholder.svg"}
-            alt={product.name}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          {product.apercu_produit ? (
+            product.apercu_produit.endsWith('.mp4') || product.apercu_produit.includes('video/upload') ? (
+              <video
+                src={product.apercu_produit}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            ) : (
+              <img
+                src={product.apercu_produit}
+                alt={product.name}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            )
+          ) : (
+            <img
+              src={product.imageUrl || "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop"}
+              alt={product.name}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          )}
           {product.discount && (
             <div className="absolute left-2 top-2 rounded-md bg-orange-500 px-2 py-1 text-xs font-semibold text-white">
               {product.discount}
@@ -74,9 +97,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onCTAClick }) => {
           {/* Pricing and Add Button */}
           <div className="flex items-center justify-between pt-2">
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-foreground">{product.price} FCFA</span>
+              <span className="text-lg font-bold text-foreground">
+                {product.price_min && product.price_max && product.price_min !== product.price_max
+                  ? `${product.price_min.toLocaleString()} - ${product.price_max.toLocaleString()} FCFA`
+                  : `${product.price.toLocaleString()} FCFA`}
+              </span>
               {product.originalPrice && (
-                <span className="text-xs text-muted-foreground line-through">{product.originalPrice} FCFA</span>
+                <span className="text-xs text-muted-foreground line-through">{product.originalPrice.toLocaleString()} FCFA</span>
               )}
             </div>
             <motion.button
