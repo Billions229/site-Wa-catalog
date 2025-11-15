@@ -18,6 +18,13 @@ import ConfidentialitePage from "./pages/ConfidentialitePage"
 import CookiesPage from "./pages/CookiesPage"
 import BlogPage from "./pages/BlogPage"
 import BlogDetailPage from "./pages/BlogDetailPage"
+import PricingPage from "./pages/PricingPage"
+import StatsPage from "./pages/StatsPage"
+import HelpPage from "./pages/HelpPage"
+import HelpFaqPage from "./pages/HelpFaqPage"
+import HelpDepannagePage from "./pages/HelpDepannagePage"
+import HelpSecurityPage from "./pages/HelpSecurityPage"
+import AccessibilitePage from "./pages/AccessibilitePage"
 
 function App() {
   return (
@@ -41,6 +48,14 @@ function App() {
           <Route path="/cookies" element={<CookiesPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogDetailPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/tarifs" element={<PricingPage />} />
+          <Route path="/statistiques" element={<StatsPage />} />
+          <Route path="/aide" element={<HelpPage />} />
+          <Route path="/aide/faq" element={<HelpFaqPage />} />
+          <Route path="/aide/depannage" element={<HelpDepannagePage />} />
+          <Route path="/aide/securite" element={<HelpSecurityPage />} />
+          <Route path="/accessibilite" element={<AccessibilitePage />} />
         </Routes>
         <Footer />
         <ScrollToTop />

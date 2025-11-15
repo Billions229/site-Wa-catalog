@@ -3,29 +3,29 @@ import { PricingTable } from "@/components/ui/pricing-table"
 import type { PricingFeature, PricingPlan } from "@/components/ui/pricing-table"
 
 const features: PricingFeature[] = [
-  { name: "💰 Génération de leads mutualisée (campagnes Facebook/Google)", included: "pro" },
-  { name: "🔍 Visibilité SEO & indexation IA (Google, LLMs)", included: "all" },
-  { name: "⭐ Badge Vendeur Vérifié (capital confiance)", included: "pro" },
-  { name: "📊 Système d'avis client (audio/vidéo)", included: "all" },
-  { name: "📝 Contenu marketing premium (articles sponsorisés)", included: "pro" },
-  { name: "🔧 Indexation services locaux (artisans, urgences)", included: "all" },
-  { name: "📱 Catalogue WhatsApp Business requis", included: "all" },
-  { name: "🎯 Leads qualifiés par conversation IA", included: "all" },
-  { name: "📈 Statistiques hebdomadaires WhatsApp", included: "all" },
-  { name: "💬 Assistance setup & accompagnement", included: "pro" },
-  { name: "🚀 Position prioritaire résultats recherche", included: "pro" },
-  { name: "✅ Sans engagement, pause possible", included: "all" },
+  { name: "Référencement catalogue WhatsApp", included: "starter" },
+  { name: "Leads offerts chaque mois", included: "starter" },
+  { name: "Pages SEO dédiées par produit", included: "all" },
+  { name: "Visibilité IA (ChatGPT, Gemini, etc.)", included: "all" },
+  { name: "Badge Vendeur Vérifié", included: "pro" },
+  { name: "Rapport hebdomadaire WhatsApp", included: "starter" },
+  { name: "Analytics avancées + alertes", included: "pro" },
+  { name: "Articles sponsorisés Premium", included: "pro" },
+  { name: "Commission uniquement par lead", included: "all" },
+  { name: "Support prioritaire 24/7", included: "pro" },
+  { name: "Campagnes marketing mutualisées", included: "all" },
+  { name: "Add-ons à la demande", included: "all" },
 ]
 
 const plans: PricingPlan[] = [
   {
-    name: "Gratuit",
+    name: "Starter",
     price: { monthly: 0, yearly: 0 },
     level: "starter",
   },
   {
     name: "Business",
-    price: { monthly: 10000, yearly: 100000 },
+    price: { monthly: 15000, yearly: 150000 },
     level: "pro",
     popular: true,
   },

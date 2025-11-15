@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { 
-  CheckCircle, 
-  ArrowRight, 
-  Users, 
-  TrendingUp, 
-  Shield, 
+import {
+  CheckCircle,
+  ArrowRight,
+  Users,
+  TrendingUp,
+  Shield,
   BarChart3,
   MessageCircle,
   ClipboardList,
@@ -16,7 +16,9 @@ import {
   DollarSign,
   Clock,
   Award,
-  HelpCircle
+  HelpCircle,
+  Globe,
+  Handshake
 } from "lucide-react"
 import SEO from "@/components/SEO"
 import { PricingTable } from "@/components/ui/pricing-table"
@@ -48,42 +50,42 @@ export default function BecomeVendorPage() {
     }
   }
 
-  const advantages = [
+  const pillars = [
     {
       icon: TrendingUp,
-      title: "Visibilité massive",
-      description: "Tes produits accessibles à des milliers d'acheteurs actifs",
-      impact: "+5000× exposition"
+      title: "Génération de leads mutualisée",
+      description: "Nous finançons des campagnes digitales ciblées, le bot qualifie la demande et t'envoie seulement des acheteurs sérieux.",
+      impact: "Leads chauds livrés"
     },
     {
-      icon: Target,
-      title: "Clients qualifiés",
-      description: "Les acheteurs recherchent exactement ce que tu vends",
-      impact: "Taux de conversion élevé"
+      icon: Globe,
+      title: "Visibilité organique durable",
+      description: "Chaque produit obtient une page SEO dédiée indexée sur Google et par les IA conversationnelles pour capter les recherches locales.",
+      impact: "Visites 24/7"
     },
     {
-      icon: DollarSign,
-      title: "Commission uniquement par lead",
-      description: "Tu paies uniquement quand un client te contacte, pas sur les ventes",
-      impact: "Profits préservés"
+      icon: Shield,
+      title: "Capital confiance numérique",
+      description: "Collecte d'avis texte, audio ou vidéo, badges Vérifié et suivi de performance renforcent ta crédibilité instantanément.",
+      impact: "Confiance prouvée"
     },
     {
-      icon: BarChart3,
-      title: "Statistiques hebdomadaires",
-      description: "Rapport WhatsApp (vues, clics, top produits) envoyé par l'équipe",
-      impact: "Décisions data-driven"
-    },
-    {
-      icon: Award,
-      title: "Badges confiance",
-      description: "Vendeur Vérifié, Réponse rapide, etc.",
-      impact: "Crédibilité renforcée"
+      icon: Handshake,
+      title: "Partenariats marketing premium",
+      description: "Articles sponsorisés, placements éditoriaux et campagnes co-brandées pour pousser tes meilleures offres au-dessus de la concurrence.",
+      impact: "Boost de notoriété"
     },
     {
       icon: Zap,
-      title: "Réponse rapide",
-      description: "Notre bot répond en moins de 30 secondes aux acheteurs",
-      impact: "Expérience optimale"
+      title: "Expérience WhatsApp sans friction",
+      description: "Fini la pollution des statuts : le bot répond en langage naturel en moins de 30 secondes avec la bonne recommandation produit.",
+      impact: "Réponse ultra-rapide"
+    },
+    {
+      icon: Users,
+      title: "Indexation des services locaux",
+      description: "Des artisans au dépannage d'urgence, tu restes visible quand la demande est critique, même la nuit ou le week-end.",
+      impact: "Demande continue"
     }
   ]
 
@@ -257,10 +259,10 @@ export default function BecomeVendorPage() {
                 <Award className="w-10 h-10 text-white drop-shadow-lg" />
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-md">
-                Rejoins la communauté des vendeurs wa-catalog
+                Rejoins l'écosystème vendeur wa-catalog
               </h1>
               <p className="text-xl md:text-2xl text-primary-50 mb-8 leading-relaxed">
-                La première marketplace WhatsApp au Bénin. Des milliers d'acheteurs actifs cherchent tes produits en ce moment.
+                La première marketplace WhatsApp au Bénin qui mutualise le marketing, te donne une présence SEO et digitalise ta réputation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
@@ -288,16 +290,16 @@ export default function BecomeVendorPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                Pourquoi rejoindre wa-catalog ?
+                Les 6 piliers qui boostent ton activité
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Rejoins des centaines de vendeurs qui ont déjà multiplié leurs ventes grâce à notre plateforme
+                Un écosystème complet imaginé pour structurer le commerce informel africain et sécuriser ta croissance, du lead à la rétention.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {advantages.map((advantage, index) => {
-                const IconComponent = advantage.icon
+              {pillars.map((pillar, index) => {
+                const IconComponent = pillar.icon
                 return (
                   <div
                     key={index}
@@ -307,14 +309,14 @@ export default function BecomeVendorPage() {
                       <IconComponent className="w-8 h-8" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                      {advantage.title}
+                      {pillar.title}
                     </h3>
                     <p className="text-gray-700 mb-4 leading-relaxed">
-                      {advantage.description}
+                      {pillar.description}
                     </p>
                     <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-semibold text-sm">
                       <TrendingUp className="w-4 h-4" />
-                      {advantage.impact}
+                      {pillar.impact}
                     </div>
                   </div>
                 )

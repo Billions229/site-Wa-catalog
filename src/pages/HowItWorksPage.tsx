@@ -68,12 +68,12 @@ export default function HowItWorksPage() {
       icon: MessageCircle,
       image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&h=600&fit=crop",
       details: [
-        "💬 \"Bonjour, comment ça marche ?\"",
-        "🤖 Le bot t'explique son fonctionnement",
-        "🔍 \"Je cherche un iPhone 13\"",
-        "📱 Le bot comprend ta demande",
-        "⚡ Fini les 80 statuts à regarder et les groupes saturés !",
-        "🎯 Recherche de précision au lieu du 'fouillage'"
+        "Commence par un message simple : \"Bonjour, comment ça marche ?\"",
+        "Le bot t'explique chaque étape pour avancer",
+        "Formule ta demande, par exemple : \"Je cherche un iPhone 13\"",
+        "Le bot comprend et classe ta requête automatiquement",
+        "Tu évites les centaines de statuts à parcourir sans résultat",
+        "La recherche devient ciblée plutôt que du fouillage"
       ]
     },
     {
@@ -83,10 +83,10 @@ export default function HowItWorksPage() {
       icon: Search,
       image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=800&h=600&fit=crop",
       details: [
-        "🏙️ Dans quelle ville ? (ex: Cotonou)",
-        "🚚 Livraison souhaitée ? (Oui/Non)",
-        "💰 Quel est ton budget ? (ex: 450 000 FCFA)",
-        "📦 État préféré ? (Neuf/Occasion)"
+        "Le bot te demande dans quelle ville tu te trouves (exemple : Cotonou)",
+        "Il vérifie si tu souhaites une livraison ou un retrait",
+        "Tu précises ton budget, par exemple 450 000 FCFA",
+        "Tu indiques si tu préfères du neuf ou de l'occasion"
       ]
     },
     {
@@ -96,11 +96,11 @@ export default function HowItWorksPage() {
       icon: ShoppingBag,
       image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=600&fit=crop",
       details: [
-        "📸 Photos réelles des produits",
-        "💵 Prix clairs en FCFA",
-        "📍 Localisation des vendeurs",
-        "📞 Numéros WhatsApp directs",
-        "⏱️ Réponse en moins de 30 secondes"
+        "Tu reçois des photos réelles des produits",
+        "Les prix sont affichés clairement en FCFA",
+        "La localisation des vendeurs est indiquée",
+        "Le bot fournit le lien WhatsApp direct de chaque vendeur",
+        "La réponse globale arrive en moins de 30 secondes"
       ]
     },
     {
@@ -110,11 +110,11 @@ export default function HowItWorksPage() {
       icon: Users,
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
       details: [
-        "✅ Vendeurs vérifiés par wa-catalog",
-        "💬 Discussion directe sur WhatsApp",
-        "🤝 Négociation possible avec le vendeur",
-        "📦 Conviens du mode de livraison/retrait",
-        "💳 Finalise le paiement avec le vendeur"
+        "Les vendeurs proposés sont vérifiés par wa-catalog",
+        "La discussion se poursuit directement sur WhatsApp",
+        "Tu peux négocier les conditions avec le vendeur",
+        "Vous décidez ensemble du mode de livraison ou de retrait",
+        "Le paiement se finalise selon la méthode convenue"
       ]
     }
   ]
@@ -149,11 +149,11 @@ export default function HowItWorksPage() {
         </div>
       ),
       details: [
-        "✅ Si tu as déjà un catalogue WhatsApp Business : Remplis le formulaire",
-        "📱 Fournis ton numéro WhatsApp et le lien de ton catalogue",
-        "🆕 Pas de catalogue ? Contacte l'équipe au +229 99 32 30 73",
-        "🎁 Offre lancement : Gratuit pour les 50 premiers vendeurs",
-        "💰 Accède aux campagnes publicitaires mutualisées (Facebook/Google)"
+        "Si tu possèdes déjà un catalogue WhatsApp Business, remplis directement le formulaire",
+        "Indique ton numéro WhatsApp et le lien exact de ton catalogue",
+        "Pas encore de catalogue ? Contacte l'équipe au +229 99 32 30 73",
+        "Profite de l'offre de lancement gratuite pour les 50 premiers vendeurs",
+        "Accède ensuite aux campagnes publicitaires mutualisées (Facebook et Google)"
       ]
     },
     {
@@ -163,12 +163,12 @@ export default function HowItWorksPage() {
       icon: CheckCircle,
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop",
       details: [
-        "🔍 Vérification de la qualité des produits",
-        "✅ Validation des catégories acceptées",
-        "⚡ Indexation dans le bot (24-48h)",
-        "📧 Message de confirmation par WhatsApp",
-        "🌐 Création de ta page SEO sur wa-catalog.com (Pilier Visibilité)",
-        "🤖 Indexation pour les moteurs IA (ChatGPT, Gemini, etc.)"
+        "Nous vérifions la qualité des produits et la cohérence des informations",
+        "Nous confirmons que tes articles respectent les catégories acceptées",
+        "Ton catalogue est indexé dans le bot sous 24 à 48 heures",
+        "Tu reçois un message de confirmation par WhatsApp",
+        "Nous créons ta page SEO sur wa-catalog.com pour renforcer ta visibilité",
+        "Tes fiches sont indexées par les moteurs IA (ChatGPT, Gemini, etc.)"
       ]
     },
     {
@@ -178,13 +178,13 @@ export default function HowItWorksPage() {
       icon: BarChart3,
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
       details: [
-        "📸 Photos HD avec plusieurs angles",
-        "📝 Descriptions détaillées (état, accessoires, garantie)",
-        "💰 Prix compétitifs et à jour",
-        "🏷️ Mots-clés pertinents dans les titres",
-        "🔄 Mises à jour régulières du stock",
-        "⭐ Collecte d'avis clients (audio/vidéo) pour capital confiance",
-        "📝 Éligibilité aux articles sponsorisés (Top 10, guides d'achat)"
+        "Ajoute des photos haute définition prises sous plusieurs angles",
+        "Rédige des descriptions détaillées (état, accessoires, garantie)",
+        "Maintiens des prix compétitifs et mis à jour",
+        "Utilise des mots-clés pertinents dans chaque titre",
+        "Actualise ton stock régulièrement",
+        "Collecte des avis clients audio ou vidéo pour ton capital confiance",
+        "Prépare les informations nécessaires pour les articles sponsorisés (Top 10, guides d'achat)"
       ]
     },
     {
@@ -194,13 +194,13 @@ export default function HowItWorksPage() {
       icon: Users,
       image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop",
       details: [
-        "📲 Notifications WhatsApp pour chaque lead",
-        "👥 Clients déjà intéressés par tes produits (pré-qualifiés par IA)",
-        "💬 Discussion directe avec les acheteurs",
-        "🎯 Taux de conversion élevé grâce à la précision chirurgicale",
-        "💰 Paie uniquement pour les contacts reçus",
-        "⚡ Fini le 'fouillage' - tes clients te trouvent instantanément",
-        "🔧 Inclut services d'urgence (ex: mécanicien à 1h du matin)"
+        "Tu reçois une notification WhatsApp pour chaque lead transmis",
+        "Les prospects sont déjà qualifiés par l'IA et intéressés par tes produits",
+        "La discussion se tient directement avec l'acheteur",
+        "Le taux de conversion augmente grâce à la précision des recommandations",
+        "Tu payes uniquement pour les contacts reçus",
+        "Les clients te trouvent instantanément sans passer par les statuts",
+        "Les services d'urgence restent disponibles à toute heure"
       ]
     },
     {
@@ -210,13 +210,13 @@ export default function HowItWorksPage() {
       icon: BadgeCheck,
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       details: [
-        "📊 Rapport WhatsApp chaque semaine",
-        "👀 Nombre de vues de tes produits",
-        "📈 Clics et contacts générés",
-        "🏆 Produits les plus recherchés",
-        "⭐ Badge \"Vendeur Vérifié\" après bonnes performances",
-        "💬 Gestion des avis clients (ton capital confiance digital)",
-        "🔗 Lien personnalisé pour collecter des avis"
+        "Tu reçois un rapport WhatsApp chaque semaine",
+        "Il présente le nombre de vues générées par tes produits",
+        "Il récapitule les clics et les contacts obtenus",
+        "Tu identifies les produits les plus recherchés",
+        "Le badge \"Vendeur Vérifié\" s'obtient après de bonnes performances",
+        "Les avis clients sont regroupés pour cultiver ton capital confiance digital",
+        "Un lien personnalisé t'aide à collecter de nouveaux avis"
       ]
     }
   ]
