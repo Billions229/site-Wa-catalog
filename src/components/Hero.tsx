@@ -77,32 +77,32 @@ export default function Hero() {
         </button>
 
         {/* Animated Layered Cards Interface - WhatsApp Mockup */}
-        <div className="relative w-full max-w-3xl mx-auto">
+        <div className="relative w-full max-w-3xl mx-auto" style={{ height: "400px" }}>
           {/* Background Cards with staggered animations */}
           <div className="absolute inset-0 transform rotate-3 scale-95 transition-all duration-1000 ease-in-out">
             <div
-              className={`w-full h-72 bg-accent-300 rounded-3xl shadow-2xl opacity-50 transition-all duration-1000 ${currentCard === 1 ? "scale-105 opacity-70" : ""}`}
+              className={`w-full h-full bg-accent-300 rounded-3xl shadow-2xl opacity-50 transition-all duration-1000 ${currentCard === 1 ? "scale-105 opacity-70" : ""}`}
             ></div>
           </div>
           <div className="absolute inset-0 transform -rotate-2 scale-96 transition-all duration-1000 ease-in-out delay-300">
             <div
-              className={`w-full h-76 bg-primary-400 rounded-3xl shadow-2xl opacity-60 transition-all duration-1000 ${currentCard === 2 ? "scale-105 opacity-80" : ""}`}
+              className={`w-full h-full bg-primary-400 rounded-3xl shadow-2xl opacity-60 transition-all duration-1000 ${currentCard === 2 ? "scale-105 opacity-80" : ""}`}
             ></div>
           </div>
           <div className="absolute inset-0 transform rotate-1 scale-97 transition-all duration-1000 ease-in-out delay-500">
             <div
-              className={`w-full h-72 bg-pink-400 rounded-3xl shadow-2xl opacity-50 transition-all duration-1000 ${currentCard === 3 ? "scale-105 opacity-70" : ""}`}
+              className={`w-full h-full bg-pink-400 rounded-3xl shadow-2xl opacity-50 transition-all duration-1000 ${currentCard === 3 ? "scale-105 opacity-70" : ""}`}
             ></div>
           </div>
           <div className="absolute inset-0 transform -rotate-1 scale-98 transition-all duration-1000 ease-in-out delay-700">
             <div
-              className={`w-full h-72 bg-yellow-300 rounded-3xl shadow-2xl opacity-40 transition-all duration-1000 ${currentCard === 0 ? "scale-105 opacity-60" : ""}`}
+              className={`w-full h-full bg-yellow-300 rounded-3xl shadow-2xl opacity-40 transition-all duration-1000 ${currentCard === 0 ? "scale-105 opacity-60" : ""}`}
             ></div>
           </div>
 
           {/* Main Animated Card - WhatsApp Interface */}
           <div
-            className={`relative z-10 w-full h-76 ${currentConfig.bgColor} rounded-3xl shadow-2xl p-6 flex flex-col transition-all duration-1000 ease-in-out transform hover:scale-[1.02]`}
+            className={`relative z-10 w-full h-full ${currentConfig.bgColor} rounded-3xl shadow-2xl p-6 flex flex-col transition-all duration-1000 ease-in-out transform hover:scale-[1.02]`}
           >
             {/* WhatsApp Chat Interface */}
             <div className="bg-white/25 backdrop-blur-sm rounded-2xl p-5 flex-1 transition-all duration-500">
