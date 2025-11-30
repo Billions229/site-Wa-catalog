@@ -139,26 +139,26 @@ export default function HelpPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-gray-900 via-gray-950 to-black py-16 text-white sm:py-20">
+        <section className="py-16 text-white sm:py-20" style={{background: 'linear-gradient(to bottom right, rgb(31, 41, 55), rgb(55, 65, 81), rgb(75, 85, 99))'}}>
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-12 md:grid-cols-2">
               <div>
-                <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white/70">
+                <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                   Guides WA-CATALOG
                 </span>
-                <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">Optimise ton parcours en 3 minutes</h2>
-                <p className="mt-4 text-lg text-white/70">
+                <h2 className="mt-4 text-3xl font-extrabold md:text-4xl text-white">Optimise ton parcours en 3 minutes</h2>
+                <p className="mt-4 text-lg text-white" style={{opacity: 0.95}}>
                   Chaque guide reprend nos piliers : la génération de leads mutualisée, la visibilité organique, la
-                  confiance numérique et l’expérience WhatsApp fluide.
+                  confiance numérique et l'expérience WhatsApp fluide.
                 </p>
                 <div className="mt-8 space-y-6">
                   {guides.map((guide) => (
-                    <div key={guide.title} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <div key={guide.title} className="rounded-2xl border p-5" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                       <div className="flex items-center gap-3">
                         <BookOpen className="h-5 w-5 text-primary-200" />
                         <h3 className="text-lg font-semibold text-white">{guide.title}</h3>
                       </div>
-                      <ul className="mt-4 space-y-2 text-sm text-white/70">
+                      <ul className="mt-4 space-y-2 text-sm text-white">
                         {guide.items.map((item) => (
                           <li key={item} className="flex items-start gap-2">
                             <Lightbulb className="mt-0.5 h-4 w-4 text-primary-200" />
@@ -170,23 +170,23 @@ export default function HelpPage() {
                   ))}
                 </div>
               </div>
-              <div className="rounded-3xl border border-white/10 bg-white/10 p-8 shadow-2xl backdrop-blur">
+              <div className="rounded-3xl border p-8 shadow-2xl backdrop-blur" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                 <h3 className="text-xl font-bold text-white">Contact rapide</h3>
-                <p className="mt-3 text-sm text-white/70">
-                  Besoin d’une assistance prioritaire ? Notre équipe répond sur WhatsApp en moins de 15 minutes aux
+                <p className="mt-3 text-sm text-white" style={{opacity: 0.95}}>
+                  Besoin d'une assistance prioritaire ? Notre équipe répond sur WhatsApp en moins de 15 minutes aux
                   vendeurs Business.
                 </p>
-                <div className="mt-6 space-y-4 text-sm text-white/80">
+                <div className="mt-6 space-y-4 text-sm text-white">
                   <div className="flex items-center gap-3">
-                    <MessageCircle className="h-5 w-5 text-primary-200" />
+                    <MessageCircle className="h-5 w-5" style={{color: '#fbbf24'}} />
                     <span>WhatsApp : +229 99 32 30 73</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <HelpCircle className="h-5 w-5 text-primary-200" />
+                    <HelpCircle className="h-5 w-5" style={{color: '#fbbf24'}} />
                     <span>Support email : support@wa-catalog.com</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Compass className="h-5 w-5 text-primary-200" />
+                    <Compass className="h-5 w-5" style={{color: '#fbbf24'}} />
                     <span>Horaires : Lundi – Samedi, 8h à 21h</span>
                   </div>
                 </div>

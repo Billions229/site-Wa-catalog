@@ -11,6 +11,8 @@ import {
   Sparkles,
   TrendingUp,
   ArrowUpRight,
+  Shield,
+  Megaphone,
 } from "lucide-react"
 
 export default function StatsPage() {
@@ -185,66 +187,66 @@ export default function StatsPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-gray-900 via-gray-950 to-black py-16 text-white sm:py-20">
+        <section className="py-16 text-white sm:py-20" style={{background: 'linear-gradient(to bottom right, rgb(31, 41, 55), rgb(55, 65, 81), rgb(75, 85, 99))'}}>
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <h2 className="text-3xl font-extrabold md:text-4xl">Pourquoi ces chiffres comptent</h2>
-                <p className="mt-4 text-lg text-white/70">
+                <h2 className="text-3xl font-extrabold md:text-4xl text-white">Pourquoi ces chiffres comptent</h2>
+                <p className="mt-4 text-lg text-white" style={{opacity: 0.95}}>
                   Ils valident nos piliers : sans lead qualifié, sans confiance, sans SEO, aucune marketplace sociale ne
                   tient sur la durée.
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm text-white/80">
+              <div className="rounded-2xl border px-6 py-4 text-sm text-white" style={{backgroundColor: 'rgba(255, 255, 255, 0.18)', borderColor: 'rgba(255, 255, 255, 0.3)'}}>
                 Données mises à jour chaque semaine • Calculs anonymisés • Période de référence : 1er octobre – 31 octobre
                 2025
               </div>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="rounded-2xl border p-6" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                 <div className="flex items-center gap-3">
-                  <Shield className="h-6 w-6 text-primary-200" />
-                  <span className="text-sm font-semibold uppercase tracking-wide text-primary-100">
+                  <Shield className="h-6 w-6" style={{color: '#fbbf24'}} />
+                  <span className="text-sm font-semibold uppercase tracking-wide text-white">
                     Confiance & réputation
                   </span>
                 </div>
-                <p className="mt-4 text-lg text-white/80">
+                <p className="mt-4 text-lg text-white" style={{opacity: 0.95}}>
                   4 320 avis collectés (texte, audio, vidéo). 61 % des vendeurs Business obtiennent le badge Vérifié en
-                  moins de 30 jours grâce à notre programme d’accompagnement.
+                  moins de 30 jours grâce à notre programme d'accompagnement.
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="rounded-2xl border p-6" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                 <div className="flex items-center gap-3">
-                  <Megaphone className="h-6 w-6 text-primary-200" />
-                  <span className="text-sm font-semibold uppercase tracking-wide text-primary-100">
+                  <Megaphone className="h-6 w-6" style={{color: '#fbbf24'}} />
+                  <span className="text-sm font-semibold uppercase tracking-wide text-white">
                     Visibilité organique
                   </span>
                 </div>
-                <p className="mt-4 text-lg text-white/80">
+                <p className="mt-4 text-lg text-white" style={{opacity: 0.95}}>
                   68 % du trafic entrant provient de Google et de Bing grâce aux pages SEO locales. Les IA (ChatGPT,
                   Copilot) commencent à référencer nos fiches produits long tail.
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="rounded-2xl border p-6" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                 <div className="flex items-center gap-3">
-                  <Users className="h-6 w-6 text-primary-200" />
-                  <span className="text-sm font-semibold uppercase tracking-wide text-primary-100">
+                  <Users className="h-6 w-6" style={{color: '#fbbf24'}} />
+                  <span className="text-sm font-semibold uppercase tracking-wide text-white">
                     Expérience WhatsApp
                   </span>
                 </div>
-                <p className="mt-4 text-lg text-white/80">
+                <p className="mt-4 text-lg text-white" style={{opacity: 0.95}}>
                   92 % des conversations se concluent en moins de 4 messages grâce aux recommandations ciblées et à nos
                   scripts de relance automatiques.
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="rounded-2xl border p-6" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                 <div className="flex items-center gap-3">
-                  <BarChart className="h-6 w-6 text-primary-200" />
-                  <span className="text-sm font-semibold uppercase tracking-wide text-primary-100">
+                  <BarChart className="h-6 w-6" style={{color: '#fbbf24'}} />
+                  <span className="text-sm font-semibold uppercase tracking-wide text-white">
                     Génération de leads
                   </span>
                 </div>
-                <p className="mt-4 text-lg text-white/80">
+                <p className="mt-4 text-lg text-white" style={{opacity: 0.95}}>
                   Pour 1 000 FCFA investis en média via wa-catalog, les vendeurs Business reçoivent en moyenne 4 leads
                   qualifiés. Un retour sur investissement tangible dès la première semaine.
                 </p>

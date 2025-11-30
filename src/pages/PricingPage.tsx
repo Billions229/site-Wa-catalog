@@ -261,7 +261,7 @@ export default function PricingPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 py-20">
+        <section className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-900 py-20">
           <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <span className="mb-3 inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white">

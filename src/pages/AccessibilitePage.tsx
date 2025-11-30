@@ -1,5 +1,5 @@
 import SEO from "@/components/SEO"
-import { Accessibility, Contrast, Eye, Keyboard, Languages, MessageCircle, Volume2 } from "lucide-react"
+import { Accessibility, Eye, Keyboard, Languages, MessageCircle, Volume2 } from "lucide-react"
 
 const commitments = [
   {
@@ -105,20 +105,20 @@ export default function AccessibilitePage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-gray-900 via-gray-950 to-black py-16 text-white sm:py-20">
+        <section className="py-16 text-white sm:py-20" style={{background: 'linear-gradient(to bottom right, rgb(31, 41, 55), rgb(55, 65, 81), rgb(75, 85, 99))'}}>
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="mb-8 text-center">
-              <h2 className="text-3xl font-extrabold md:text-4xl">Feuille de route inclusive</h2>
-              <p className="mt-3 text-lg text-white/70">
+              <h2 className="text-3xl font-extrabold md:text-4xl text-white">Feuille de route inclusive</h2>
+              <p className="mt-3 text-lg text-white" style={{opacity: 0.95}}>
                 Les fonctionnalités ci-dessous sont priorisées pour garantir un accès équitable au commerce informel
                 digital.
               </p>
             </div>
             <div className="space-y-4">
               {roadmap.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div key={item.label} className="rounded-2xl border p-5" style={{backgroundColor: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.15)'}}>
                   <h3 className="text-lg font-semibold text-white">{item.label}</h3>
-                  <p className="mt-2 text-sm text-white/75">{item.details}</p>
+                  <p className="mt-2 text-sm text-white">{item.details}</p>
                 </div>
               ))}
             </div>

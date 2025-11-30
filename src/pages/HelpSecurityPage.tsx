@@ -3,7 +3,7 @@ import { ShieldCheck, Lock, Eye, AlertTriangle, PhoneCall, FileWarning, GlobeLoc
 
 const securityPrinciples = [
   {
-    title: "Vérifie l’identité des vendeurs",
+    title: "Vérifie l'identité des vendeurs",
     description:
       "Privilégie les vendeurs avec badge « Vendeur Vérifié ». Demande une photo ou une vidéo du produit incluant un signe distinctif (numéro de commande, date du jour).",
     icon: ShieldCheck,
@@ -17,7 +17,7 @@ const securityPrinciples = [
   {
     title: "Protége tes informations",
     description:
-      "Ne partage jamais ton code WhatsApp ou tes mots de passe. Limite l’accès à ton téléphone professionnel et active la double authentification.",
+      "Ne partage jamais ton code WhatsApp ou tes mots de passe. Limite l'accès à ton téléphone professionnel et active la double authentification.",
     icon: GlobeLock,
   },
 ]
@@ -26,7 +26,7 @@ const redFlags = [
   "Le vendeur refuse un paiement sécurisé ou exige un acompte immédiat inhabituel.",
   "Le prix est très inférieur à la concurrence sans justification claire.",
   "Le vendeur change de numéro en plein échange.",
-  "Il refuse tout échange audio ou vidéo pour prouver l’existence du produit.",
+  "Il refuse tout échange audio ou vidéo pour prouver l'existence du produit.",
 ]
 
 export default function HelpSecurityPage() {
@@ -35,7 +35,7 @@ export default function HelpSecurityPage() {
     "@type": "WebPage",
     name: "Sécurité wa-catalog",
     description:
-      "Conseils de sécurité wa-catalog pour acheter et vendre en toute confiance sur WhatsApp : vérification des vendeurs, paiements sécurisés, signaux d’alerte.",
+      "Conseils de sécurité wa-catalog pour acheter et vendre en toute confiance sur WhatsApp : vérification des vendeurs, paiements sécurisés, signaux d'alerte.",
     url: "https://wa-catalog.com/aide/securite",
   }
 
@@ -96,24 +96,29 @@ export default function HelpSecurityPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-gray-900 via-gray-950 to-black py-16 text-white sm:py-20">
+        <section className="bg-white py-16 sm:py-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-              <div>
-                <h2 className="text-3xl font-extrabold md:text-4xl">Signaux d’alerte à repérer</h2>
-                <p className="mt-4 text-lg text-white/70">
-                  Ces situations indiquent un risque. Évite la transaction et signale immédiatement l’utilisateur.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-sm text-white/80">
-                Nous suspendons les comptes signalés le temps de l’enquête • Vérifications en moins de 24 h
-              </div>
+            <div className="mb-8 text-center">
+              <span className="inline-flex rounded-full bg-red-50 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-red-600">
+                Soyez vigilant
+              </span>
+              <h2 className="mt-4 text-3xl font-extrabold text-gray-900 md:text-4xl">Signaux d'alerte à repérer</h2>
+              <p className="mt-4 text-lg text-gray-600">
+                Ces situations indiquent un risque. Évite la transaction et signale immédiatement l'utilisateur.
+              </p>
             </div>
-            <div className="mt-8 space-y-4">
+            
+            <div className="mb-6 rounded-2xl border border-primary-200 bg-primary-50 p-6 text-center">
+              <p className="text-sm font-semibold text-primary-900">
+                Nous suspendons les comptes signalés le temps de l'enquête • Vérifications en moins de 24 h
+              </p>
+            </div>
+
+            <div className="space-y-4">
               {redFlags.map((flag) => (
-                <div key={flag} className="flex items-start gap-3 rounded-2xl bg-white/5 p-5">
-                  <AlertTriangle className="mt-1 h-5 w-5 text-primary-200" />
-                  <p className="text-sm leading-relaxed text-white/80">{flag}</p>
+                <div key={flag} className="flex items-start gap-3 rounded-2xl border border-red-100 bg-red-50 p-5 shadow-sm">
+                  <AlertTriangle className="mt-1 h-5 w-5 flex-shrink-0 text-red-500" />
+                  <p className="text-sm leading-relaxed font-medium text-gray-900">{flag}</p>
                 </div>
               ))}
             </div>
@@ -136,7 +141,7 @@ export default function HelpSecurityPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Eye className="h-5 w-5 text-primary-600" />
-                    <span>Nous analysons les captures d’écran et preuves de paiement</span>
+                    <span>Nous analysons les captures d'écran et preuves de paiement</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FileWarning className="h-5 w-5 text-primary-600" />
@@ -149,8 +154,8 @@ export default function HelpSecurityPage() {
                 <ul className="mt-4 space-y-3 text-sm text-gray-700">
                   <li>• Audits réguliers des vendeurs Business et Pay-by-Lead.</li>
                   <li>• Hébergement sécurisé en Europe avec sauvegardes chiffrées.</li>
-                  <li>• Sensibilisation continue sur la collecte d’avis audio/vidéo authentiques.</li>
-                  <li>• Droit à l’oubli : suppression des données sur demande en moins de 48 h.</li>
+                  <li>• Sensibilisation continue sur la collecte d'avis audio/vidéo authentiques.</li>
+                  <li>• Droit à l'oubli : suppression des données sur demande en moins de 48 h.</li>
                 </ul>
               </div>
             </div>
@@ -160,4 +165,3 @@ export default function HelpSecurityPage() {
     </>
   )
 }
-
