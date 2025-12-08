@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { MessageCircle, Filter, ArrowRight } from "lucide-react"
-import { ProductCarousel, type Product } from "@/components/ui/product-carousel"
+import { ProductGrid, type Product } from "@/components/ui/product-grid"
 import { getProductsByCategory } from "@/lib/products"
 
 const categoryNames: Record<string, string> = {
@@ -181,7 +181,7 @@ export default function CategoryProductsPage() {
             </button>
           </div>
         ) : (
-          <ProductCarousel title={`Produits ${categoryName}`} products={products} onProductClick={handleProductClick} />
+          <ProductGrid title={`Produits ${categoryName}`} products={products} onProductClick={handleProductClick} />
         )}
 
         {/* CTA Section */}
