@@ -166,6 +166,7 @@ const BLOG_SLUGS = [
   'guide-acheteur-securite',
   'top-produits-electronique',
   'astuces-marketing-vendeurs',
+  'sacs-wax-alternative-authentique-benin',
 ];
 
 // Fonction pour charger le contenu d'un blog
