@@ -20,15 +20,31 @@ export interface Product {
 }
 
 // Mapping des slugs de catégories du site vers les catégories de la base de données
+// Mapping des slugs de catégories du site vers les catégories de la base de données
+// Les valeurs doivent correspondre EXACTEMENT au texte dans la colonne 'category' de la BDD
 const CATEGORY_MAPPING: Record<string, string[]> = {
-  'electronique': ['Électronique & Accessoires', 'Électronique'],
-  'mode-beaute': ['Mode & Beauté', 'Mode', 'Beauté'],
-  'maison-deco': ['Maison & Déco', 'Maison', 'Déco', 'Décoration'],
-  'auto-moto': ['Auto & Moto', 'Auto', 'Moto', 'Automobile'],
-  'alimentation': ['Alimentation', 'Nourriture'],
-  'formations-cours': ['Formations & Cours', 'Formation', 'Cours', 'Éducation'],
-  'livres-ebooks': ['Livres & E-books', 'Livres', 'E-books'],
-  'services-divers': ['Services', 'Services Divers'],
+  'electronique': ['ÉLECTRONIQUE & ACCESSOIRES', 'Électronique & Accessoires', 'Electronique'],
+  'mode-accessoires': ['MODE & ACCESSOIRES', 'Mode & Accessoires', 'Mode'],
+  'sports-fitness': ['SPORTS & FITNESS', 'Sports & Fitness', 'Sport'],
+  'maison-decoration': ['MAISON & DÉCORATION', 'Maison & Décoration', 'Maison', 'Décoration'],
+  'animaux': ['ANIMAUX DE COMPAGNIE', 'Animaux de Compagnie', 'Animaux'],
+  'alimentation': ['ALIMENTATION & BOISSONS', 'Alimentation & Boissons', 'Alimentation'],
+  'sante-bien-etre': ['SANTÉ & BIEN-ÊTRE', 'Santé & Bien-être', 'Santé', 'Bien-être'],
+  'culture-medias': ['CULTURE & MÉDIAS', 'Culture & Médias', 'Culture'],
+  'jeux-loisirs': ['JEUX & LOISIRS', 'Jeux & Loisirs', 'Jeux'],
+  'formations': ['FORMATIONS & APPRENTISSAGE', 'Formations & Apprentissage', 'Formation'],
+  'tourisme': ['TOURISME & SERVICES', 'Tourisme & Services', 'Tourisme'],
+  'auto-moto': ['AUTO & MOTO', 'Auto & Moto', 'Auto', 'Moto'],
+  'maison-intelligente': ['MAISON INTELLIGENTE & DOMOTIQUE', 'Maison Intelligente', 'Domotique'],
+  'bricolage': ['BRICOLAGE & OUTILLAGE', 'Bricolage & Outillage', 'Bricolage'],
+  'art-artisanat': ['ART & ARTISANAT', 'Art & Artisanat', 'Art', 'Artisanat'],
+  'pro': ['VÊTEMENTS & ACCESSOIRES PROFESSIONNELS', 'Vêtements Professionnels', 'Pro'],
+  'eco-responsable': ['PRODUITS ÉCO-RESPONSABLES & OCCASION', 'Éco-responsable', 'Occasion'],
+  'cadeaux': ['CADEAUX & ARTICLES PERSONNALISÉS', 'Cadeaux & Articles Personnalisés', 'Cadeaux'],
+  'bebe-maternite': ['PRODUITS BÉBÉ & MATERNITÉ', 'Produits Bébé & Maternité', 'Bébé'],
+  'luxe': ['LUXE & ARTICLES DE PRESTIGE', 'Luxe & Articles de Prestige', 'Luxe'],
+  'services': ['SERVICES & RÉPARATIONS', 'Services & Réparations', 'Services'],
+  'numerique': ['PRODUITS NUMÉRIQUES & DÉMATÉRIALISÉS', 'Produits Numériques', 'Numérique'],
 };
 
 /**
@@ -42,7 +58,7 @@ export async function getProductsByCategory(categorySlug: string): Promise<Produ
 
   try {
     const categoryNames = CATEGORY_MAPPING[categorySlug] || [];
-    
+
     if (categoryNames.length === 0) {
       console.warn(`Catégorie inconnue: ${categorySlug}`);
       return [];
@@ -120,7 +136,7 @@ export function hasPreviewMedia(product: Product): boolean {
  */
 export function getMediaType(url: string | null): 'video' | 'gif' | 'image' | null {
   if (!url) return null;
-  
+
   if (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('video/upload')) {
     return 'video';
   }

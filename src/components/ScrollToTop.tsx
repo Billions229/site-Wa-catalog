@@ -1,11 +1,18 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { useLocation } from "react-router-dom"
 import { ChevronUp } from "lucide-react"
 
 export default function ScrollToTop() {
+  const { pathname } = useLocation()
   const [isVisible, setIsVisible] = useState(false)
   const scrollThrottleTimeout = useRef<number | null>(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
 
   useEffect(() => {
     // Fonction throttle pour éviter trop d'appels pendant le scroll

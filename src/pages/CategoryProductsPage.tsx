@@ -7,14 +7,28 @@ import { ProductGrid, type Product } from "@/components/ui/product-grid"
 import { getProductsByCategory } from "@/lib/products"
 
 const categoryNames: Record<string, string> = {
-  electronique: "Électronique",
-  "mode-beaute": "Mode & Beauté",
-  "maison-deco": "Maison & Déco",
+  electronique: "Électronique & Accessoires",
+  "mode-accessoires": "Mode & Accessoires",
+  "sports-fitness": "Sports & Fitness",
+  "maison-decoration": "Maison & Décoration",
+  animaux: "Animaux de Compagnie",
+  alimentation: "Alimentation & Boissons",
+  "sante-bien-etre": "Santé & Bien-être",
+  "culture-medias": "Culture & Médias",
+  "jeux-loisirs": "Jeux & Loisirs",
+  formations: "Formations & Apprentissage",
+  tourisme: "Tourisme & Services",
   "auto-moto": "Auto & Moto",
-  alimentation: "Alimentation",
-  "formations-cours": "Formations & Cours",
-  "livres-ebooks": "Livres & E-books",
-  "services-divers": "Services Divers",
+  "maison-intelligente": "Maison Intelligente & Domotique",
+  bricolage: "Bricolage & Outillage",
+  "art-artisanat": "Art & Artisanat",
+  pro: "Vêtements & Accessoires Pro",
+  "eco-responsable": "Produits Éco-responsables",
+  cadeaux: "Cadeaux & Personnalisés",
+  "bebe-maternite": "Produits Bébé & Maternité",
+  luxe: "Luxe & Prestige",
+  services: "Services & Réparations",
+  numerique: "Produits Numériques",
 }
 
 export default function CategoryProductsPage() {
@@ -26,11 +40,11 @@ export default function CategoryProductsPage() {
   useEffect(() => {
     const loadProducts = async () => {
       if (!slug) return
-      
+
       setIsLoading(true)
       try {
         const dbProducts = await getProductsByCategory(slug)
-        
+
         // Transform database products to match Product interface
         const transformedProducts: Product[] = dbProducts.map((p: any) => ({
           id: p.id,
@@ -44,7 +58,7 @@ export default function CategoryProductsPage() {
           price_min: p.price_min,
           price_max: p.price_max,
         }))
-        
+
         setProducts(transformedProducts)
       } catch (error) {
         console.error("Erreur lors du chargement des produits:", error)
@@ -52,7 +66,7 @@ export default function CategoryProductsPage() {
         setIsLoading(false)
       }
     }
-    
+
     loadProducts()
   }, [slug])
 

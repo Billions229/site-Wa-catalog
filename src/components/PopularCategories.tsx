@@ -77,22 +77,22 @@ const ProductFeatureCard: React.FC<ProductFeatureCardProps> = ({
 export default function PopularCategories() {
   const categories = [
     {
-      name: "Électronique",
+      name: "Électronique & Accessoires",
       description: "Téléphones, ordinateurs, accessoires",
       icon: <Smartphone className="w-10 h-10" />,
       url: "/categories/electronique",
     },
     {
-      name: "Mode & Beauté",
+      name: "Mode & Accessoires",
       description: "Vêtements, chaussures, cosmétiques",
       icon: <Shirt className="w-10 h-10" />,
-      url: "/categories/mode-beaute",
+      url: "/categories/mode-accessoires",
     },
     {
-      name: "Maison & Déco",
+      name: "Maison & Décoration",
       description: "Meubles, décoration, électroménager",
       icon: <Home className="w-10 h-10" />,
-      url: "/categories/maison-deco",
+      url: "/categories/maison-decoration",
     },
     {
       name: "Auto & Moto",
@@ -101,7 +101,7 @@ export default function PopularCategories() {
       url: "/categories/auto-moto",
     },
     {
-      name: "Alimentation",
+      name: "Alimentation & Boissons",
       description: "Restaurants, traiteurs, produits frais",
       icon: <Utensils className="w-10 h-10" />,
       url: "/categories/alimentation",

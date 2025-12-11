@@ -14,22 +14,28 @@ export default function Navbar() {
       title: 'Catégories',
       items: [
         {
-          title: 'Électronique',
+          title: 'Électronique & Accessoires',
           description: 'Téléphones, ordinateurs, accessoires',
           icon: ShoppingBag,
           url: '/categories/electronique',
         },
         {
-          title: 'Mode & Beauté',
+          title: 'Mode & Accessoires',
           description: 'Vêtements, chaussures, cosmétiques',
           icon: ShoppingBag,
-          url: '/categories/mode-beaute',
+          url: '/categories/mode-accessoires',
         },
         {
-          title: 'Maison & Déco',
+          title: 'Maison & Décoration',
           description: 'Meubles, décoration, électroménager',
           icon: ShoppingBag,
-          url: '/categories/maison-deco',
+          url: '/categories/maison-decoration',
+        },
+        {
+          title: 'Alimentation & Boissons',
+          description: 'Plats, produits frais, boissons',
+          icon: ShoppingBag,
+          url: '/categories/alimentation',
         },
         {
           title: 'Voir toutes les catégories',
@@ -98,9 +104,9 @@ export default function Navbar() {
         <nav className="hidden justify-between lg:flex h-16 items-center">
           <div className="flex items-center gap-8">
             <a href="/" className="flex items-center gap-2">
-              <img 
-                src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png" 
-                alt="wa-catalog logo" 
+              <img
+                src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png"
+                alt="wa-catalog logo"
                 className="h-12 sm:h-14 w-auto"
               />
             </a>
@@ -171,9 +177,9 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         <div className="flex lg:hidden h-16 items-center justify-between">
           <a href="/" className="flex items-center gap-2">
-            <img 
-              src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png" 
-              alt="wa-catalog logo" 
+            <img
+              src="https://res.cloudinary.com/dysfocdyw/image/upload/v1760459930/WaMarket_Store_3_scfjzv.png"
+              alt="wa-catalog logo"
               className="h-12 w-auto"
             />
           </a>

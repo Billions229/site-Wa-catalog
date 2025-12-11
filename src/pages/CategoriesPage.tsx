@@ -12,6 +12,20 @@ import {
   Wrench,
   ChevronLeft,
   ChevronRight,
+  Gamepad2,
+  Plane,
+  Wifi,
+  Hammer,
+  Leaf,
+  FileDigit,
+  Dumbbell,
+  PawPrint,
+  Heart,
+  Palette,
+  Briefcase,
+  Gift,
+  Baby,
+  Gem,
   ArrowRight,
 } from "lucide-react"
 import SEO from "@/components/SEO"
@@ -19,99 +33,267 @@ import SEO from "@/components/SEO"
 const categories = [
   {
     slug: "electronique",
-    name: "Électronique",
+    name: "ÉLECTRONIQUE & ACCESSOIRES",
     icon: Smartphone,
-    description: "Téléphones, ordinateurs, accessoires tech, consoles de jeux et bien plus",
+    description: "Téléphones, ordinateurs, accessoires tech, consoles...",
     color: "bg-gradient-to-br from-blue-500 to-blue-600",
     textColor: "text-blue-600",
     bgLight: "bg-blue-50",
     image: "/samsung-galaxy-s23-ultra.png",
-    examples: ["iPhone 13", "MacBook Pro", "AirPods Pro", "PlayStation 5", "Samsung Galaxy"],
-    keywords: "téléphone, ordinateur, laptop, smartphone, tablette, console, accessoires tech",
+    examples: ["iPhone 13", "MacBook Pro", "AirPods Pro", "PS5"],
+    keywords: "téléphone, ordinateur, laptop, smartphone, console",
   },
   {
-    slug: "mode-beaute",
-    name: "Mode & Beauté",
+    slug: "mode-accessoires",
+    name: "MODE & ACCESSOIRES",
     icon: Shirt,
-    description: "Vêtements tendance, chaussures, sacs, bijoux et produits de beauté",
+    description: "Sacs, vêtements, chaussures, bijoux et beauté",
     color: "bg-gradient-to-br from-pink-500 to-pink-600",
     textColor: "text-pink-600",
     bgLight: "bg-pink-50",
     image: "/leather-handbag-brown.jpg",
-    examples: ["Robes africaines", "Sneakers Nike", "Sacs à main", "Parfums Dior", "Bijoux"],
-    keywords: "vêtement, mode, chaussure, sac, bijou, cosmétique, parfum, beauté",
+    examples: ["Sacs en Wax", "Robes", "Sneakers", "Tote Bags"],
+    keywords: "sac, vêtement, mode, chaussure, bijou",
   },
   {
-    slug: "maison-deco",
-    name: "Maison & Déco",
+    slug: "sports-fitness",
+    name: "SPORTS & FITNESS",
+    icon: Dumbbell,
+    description: "Équipement sport, fitness, musculation et outdoor",
+    color: "bg-gradient-to-br from-lime-500 to-lime-600",
+    textColor: "text-lime-600",
+    bgLight: "bg-lime-50",
+    image: "/nike-air-max-270.png",
+    examples: ["Tapis Yoga", "Haltères", "Maillots", "Chaussures Sport"],
+    keywords: "sport, fitness, musculation, yoga, ballon",
+  },
+  {
+    slug: "maison-decoration",
+    name: "MAISON & DÉCORATION",
     icon: Home,
-    description: "Meubles modernes, décoration, électroménager et ustensiles de cuisine",
+    description: "Meubles, décoration, électroménager et cuisine",
     color: "bg-gradient-to-br from-amber-500 to-amber-600",
     textColor: "text-amber-600",
     bgLight: "bg-amber-50",
     image: "/grey-fabric-sofa.jpg",
-    examples: ["Canapés", "Tables", "Réfrigérateurs Samsung", "Lampes design", "Ustensiles"],
-    keywords: "meuble, canapé, table, réfrigérateur, décoration, électroménager, cuisine",
+    examples: ["Canapés", "Tables", "Rideaux", "Coussins"],
+    keywords: "meuble, canapé, décoration, électroménager",
   },
   {
-    slug: "auto-moto",
-    name: "Auto & Moto",
-    icon: Car,
-    description: "Véhicules d'occasion et neufs, pièces détachées, pneus et accessoires",
-    color: "bg-gradient-to-br from-red-500 to-red-600",
-    textColor: "text-red-600",
-    bgLight: "bg-red-50",
-    image: "/toyota-corolla-2018.jpg",
-    examples: ["Toyota Corolla", "Motos Yamaha", "Pneus Michelin", "Batteries", "GPS auto"],
-    keywords: "voiture, moto, véhicule, pièce détachée, pneu, batterie, accessoire auto",
+    slug: "animaux",
+    name: "ANIMAUX DE COMPAGNIE",
+    icon: PawPrint,
+    description: "Alimentation, accessoires et soins pour animaux",
+    color: "bg-gradient-to-br from-orange-400 to-orange-500",
+    textColor: "text-orange-600",
+    bgLight: "bg-orange-50",
+    image: "/placeholder.jpg",
+    examples: ["Croquettes", "Jouets Chat", "Laisse", "Cages"],
+    keywords: "chien, chat, animal, croquette, accessoire",
   },
   {
     slug: "alimentation",
-    name: "Alimentation",
+    name: "ALIMENTATION & BOISSONS",
     icon: UtensilsCrossed,
-    description: "Plats cuisinés, services traiteur, produits frais et épicerie locale",
+    description: "Plats, produits frais, épicerie et boissons",
     color: "bg-gradient-to-br from-green-500 to-green-600",
     textColor: "text-green-600",
     bgLight: "bg-green-50",
     image: "/attieke-grilled-fish.jpg",
-    examples: ["Plats du jour", "Gâteaux", "Attiéké poisson", "Jus naturels", "Épices"],
-    keywords: "plat cuisiné, traiteur, alimentation, nourriture, gâteau, jus, épice, restaurant",
+    examples: ["Plats Cuisinés", "Fruits", "Épices", "Jus Naturels"],
+    keywords: "alimentation, nourriture, plat, boisson, fruit",
   },
   {
-    slug: "formations-cours",
-    name: "Formations & Cours",
-    icon: GraduationCap,
-    description: "Cours de soutien, formations professionnelles et coaching business",
-    color: "bg-gradient-to-br from-purple-500 to-purple-600",
-    textColor: "text-purple-600",
-    bgLight: "bg-purple-50",
-    image: "/excel-training-course.jpg",
-    examples: ["Cours de maths", "Formation Excel", "Coaching business", "Anglais", "Code"],
-    keywords: "formation, cours, soutien scolaire, coaching, apprentissage, éducation",
+    slug: "sante-bien-etre",
+    name: "SANTÉ & BIEN-ÊTRE",
+    icon: Heart,
+    description: "Santé, hygiène, produits naturels et soins",
+    color: "bg-gradient-to-br from-teal-400 to-teal-500",
+    textColor: "text-teal-600",
+    bgLight: "bg-teal-50",
+    image: "/dior-sauvage-perfume.jpg",
+    examples: ["Gel Aloe Vera", "Vitamines", "Savons", "Huiles"],
+    keywords: "santé, bien-être, hygiène, naturel, soin",
   },
   {
-    slug: "livres-ebooks",
-    name: "Livres & E-books",
+    slug: "culture-medias",
+    name: "CULTURE & MÉDIAS",
     icon: BookOpen,
-    description: "Romans, manuels scolaires, bandes dessinées et livres numériques",
+    description: "Livres, musique, films, jeux de société",
     color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
     textColor: "text-indigo-600",
     bgLight: "bg-indigo-50",
     image: "/alchemist-book-paulo-coelho.jpg",
-    examples: ["Romans", "Manuels scolaires", "BD", "E-books PDF", "Livres pro"],
-    keywords: "livre, ebook, roman, manuel scolaire, bd, bande dessinée, pdf, lecture",
+    examples: ["Romans", "Mangas", "Vinyles", "Jeux Société"],
+    keywords: "livre, culture, média, musique, film",
   },
   {
-    slug: "services-divers",
-    name: "Services Divers",
+    slug: "jeux-loisirs",
+    name: "JEUX & LOISIRS",
+    icon: Gamepad2,
+    description: "Jeux vidéo, consoles, figurines et loisirs",
+    color: "bg-gradient-to-br from-violet-500 to-violet-600",
+    textColor: "text-violet-600",
+    bgLight: "bg-violet-50",
+    image: "/placeholder.jpg",
+    examples: ["Jeux Vidéo", "Consoles", "Figurines", "Puzzles"],
+    keywords: "jeu, loisir, console, figurine, gaming",
+  },
+  {
+    slug: "formations",
+    name: "FORMATIONS & APPRENTISSAGE",
+    icon: GraduationCap,
+    description: "Cours en ligne, certifications et tutoriels",
+    color: "bg-gradient-to-br from-purple-500 to-purple-600",
+    textColor: "text-purple-600",
+    bgLight: "bg-purple-50",
+    image: "/excel-training-course.jpg",
+    examples: ["Cours de Code", "Langues", "Certifications", "Tutoriels"],
+    keywords: "formation, cours, apprentissage, éducation",
+  },
+  {
+    slug: "tourisme",
+    name: "TOURISME & SERVICES",
+    icon: Plane,
+    description: "Voyages, billets, séjours et événements",
+    color: "bg-gradient-to-br from-sky-400 to-sky-500",
+    textColor: "text-sky-600",
+    bgLight: "bg-sky-50",
+    image: "/placeholder.jpg",
+    examples: ["Billets Avion", "Séjours", "Excursions", "Concerts"],
+    keywords: "tourisme, voyage, service, billet, hôtel",
+  },
+  {
+    slug: "auto-moto",
+    name: "AUTO & MOTO",
+    icon: Car,
+    description: "Pièces, accessoires auto/moto et entretien",
+    color: "bg-gradient-to-br from-red-500 to-red-600",
+    textColor: "text-red-600",
+    bgLight: "bg-red-50",
+    image: "/toyota-corolla-2018.jpg",
+    examples: ["Pièces Auto", "Pneus", "Casques Moto", "Huiles"],
+    keywords: "auto, moto, pièce, accessoire, véhicule",
+  },
+  {
+    slug: "maison-intelligente",
+    name: "MAISON INTELLIGENTE & DOMOTIQUE",
+    icon: Wifi,
+    description: "Sécurité, éclairage connecté et domotique",
+    color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
+    textColor: "text-cyan-600",
+    bgLight: "bg-cyan-50",
+    image: "/placeholder.jpg",
+    examples: ["Caméras", "Ampoules Smart", "Alarmes", "Capteurs"],
+    keywords: "domotique, smart home, sécurité, connecté",
+  },
+  {
+    slug: "bricolage",
+    name: "BRICOLAGE & OUTILLAGE",
+    icon: Hammer,
+    description: "Outils, matériaux et équipements de travaux",
+    color: "bg-gradient-to-br from-stone-500 to-stone-600",
+    textColor: "text-stone-600",
+    bgLight: "bg-stone-50",
+    image: "/placeholder.jpg",
+    examples: ["Perceuses", "Peinture", "Outils Jardin", "Vis"],
+    keywords: "bricolage, outil, travaux, jardinage",
+  },
+  {
+    slug: "art-artisanat",
+    name: "ART & ARTISANAT",
+    icon: Palette,
+    description: "Fournitures d'art, loisirs créatifs et DIY",
+    color: "bg-gradient-to-br from-rose-400 to-rose-500",
+    textColor: "text-rose-600",
+    bgLight: "bg-rose-50",
+    image: "/placeholder.jpg",
+    examples: ["Peinture", "Perles", "Toiles", "Kits DIY"],
+    keywords: "art, artisanat, créatif, diy, peinture",
+  },
+  {
+    slug: "pro",
+    name: "VÊTEMENTS & ACCESSOIRES PRO",
+    icon: Briefcase,
+    description: "Tenues de travail, sécurité et accessoires pro",
+    color: "bg-gradient-to-br from-slate-600 to-slate-700",
+    textColor: "text-slate-600",
+    bgLight: "bg-slate-50",
+    image: "/placeholder.jpg",
+    examples: ["Uniformes", "Chaussures Sécurité", "EPI", "Tenues"],
+    keywords: "pro, travail, sécurité, uniforme, vêtement",
+  },
+  {
+    slug: "eco-responsable",
+    name: "PRODUITS ÉCO-RESPONSABLES",
+    icon: Leaf,
+    description: "Produits recyclés, occasion et écologiques",
+    color: "bg-gradient-to-br from-emerald-400 to-emerald-500",
+    textColor: "text-emerald-600",
+    bgLight: "bg-emerald-50",
+    image: "/placeholder.jpg",
+    examples: ["Friperie", "Recyclé", "Zéro Déchet", "Bio"],
+    keywords: "écologique, occasion, recyclé, vert, durable",
+  },
+  {
+    slug: "cadeaux",
+    name: "CADEAUX & PERSONNALISÉS",
+    icon: Gift,
+    description: "Cadeaux uniques, gravures et personnalisation",
+    color: "bg-gradient-to-br from-fuchsia-400 to-fuchsia-500",
+    textColor: "text-fuchsia-600",
+    bgLight: "bg-fuchsia-50",
+    image: "/birthday-cake-custom.jpg",
+    examples: ["Mugs Perso", "T-shirts", "Coffrets", "Gravures"],
+    keywords: "cadeau, personnalisé, souvenir, fête, offrir",
+  },
+  {
+    slug: "bebe-maternite",
+    name: "PRODUITS BÉBÉ & MATERNITÉ",
+    icon: Baby,
+    description: "Tout pour bébé, maman et la maternité",
+    color: "bg-gradient-to-br from-pink-300 to-pink-400",
+    textColor: "text-pink-500",
+    bgLight: "bg-pink-50",
+    image: "/placeholder.jpg",
+    examples: ["Couches", "Vêtements Bébé", "Poussettes", "Soins"],
+    keywords: "bébé, maternité, maman, naissance, enfant",
+  },
+  {
+    slug: "luxe",
+    name: "LUXE & PRESTIGE",
+    icon: Gem,
+    description: "Articles de luxe, haute gamme et exclusifs",
+    color: "bg-gradient-to-br from-yellow-500 to-yellow-600",
+    textColor: "text-yellow-700",
+    bgLight: "bg-yellow-50",
+    image: "/leather-handbag-brown.jpg",
+    examples: ["Montres Luxe", "Sacs Marque", "Joaillerie", "Parfums"],
+    keywords: "luxe, prestige, marque, premium, cher",
+  },
+  {
+    slug: "services",
+    name: "SERVICES & RÉPARATIONS",
     icon: Wrench,
-    description: "Plomberie, graphisme, consulting, réparations et services à domicile",
+    description: "Réparations, consulting et services divers",
     color: "bg-gradient-to-br from-gray-500 to-gray-600",
     textColor: "text-gray-600",
     bgLight: "bg-gray-50",
     image: "/plumber-repair-service.jpg",
-    examples: ["Plomberie", "Design graphique", "Réparation", "Nettoyage", "Déménagement"],
-    keywords: "service, plomberie, électricité, graphisme, réparation, nettoyage, déménagement",
+    examples: ["Réparation", "Design", "Consulting", "Nettoyage"],
+    keywords: "service, réparation, prestation, aide, pro",
+  },
+  {
+    slug: "numerique",
+    name: "PRODUITS NUMÉRIQUES",
+    icon: FileDigit,
+    description: "Logiciels, fichiers, e-books et abonnements",
+    color: "bg-gradient-to-br from-blue-400 to-blue-500",
+    textColor: "text-blue-600",
+    bgLight: "bg-blue-50",
+    image: "/placeholder.jpg",
+    examples: ["Logiciels", "E-books", "Templates", "Licences"],
+    keywords: "numérique, digital, logiciel, fichier, téléchargement",
   },
 ]
 
@@ -125,7 +307,7 @@ export default function CategoriesPage() {
     return () => clearInterval(timer)
   }, [])
 
-    const handleWhatsAppClick = (categoryName?: string) => {
+  const handleWhatsAppClick = (categoryName?: string) => {
     window.open("https://kloo.me/bot-wa-catalogue", "_blank", "noopener,noreferrer")
   }
 
@@ -159,20 +341,19 @@ export default function CategoriesPage() {
         canonical="https://wa-catalog.com/categories"
         structuredData={structuredData}
       />
-      
+
       <div className="min-h-screen bg-gray-50">
         {/* Hero Slider Section */}
         <div className="relative bg-gradient-to-br from-primary to-emerald-700 overflow-hidden">
           <div className="absolute inset-0 bg-black/20" />
-          
+
           {/* Slider Background */}
           <div className="absolute inset-0">
             {categories.slice(0, 4).map((category, index) => (
               <div
                 key={category.slug}
-                className={`absolute inset-0 transition-opacity duration-1000 ${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
               >
                 <img
                   src={category.image}
@@ -192,14 +373,14 @@ export default function CategoriesPage() {
                 <MessageCircle className="w-4 h-4 text-white" />
                 <span className="text-sm font-medium text-white">Recherche sur WhatsApp uniquement</span>
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
                 Explore toutes les
                 <span className="block text-primary-200">catégories</span>
               </h1>
-              
+
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                Des milliers de produits disponibles dans 8 catégories. Clique sur une catégorie ou discute avec le bot pour trouver exactement ce que tu cherches au Bénin.
+                Des milliers de produits disponibles dans 22 catégories. Clique sur une catégorie ou discute avec le bot pour trouver exactement ce que tu cherches au Bénin.
               </p>
 
               <button
@@ -226,9 +407,8 @@ export default function CategoriesPage() {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentSlide ? "bg-white w-8" : "bg-white/50"
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all ${index === currentSlide ? "bg-white w-8" : "bg-white/50"
+                      }`}
                     aria-label={`Aller à la slide ${index + 1}`}
                   />
                 ))}
@@ -248,7 +428,7 @@ export default function CategoriesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              8 catégories, des milliers de produits
+              22 catégories, des milliers de produits
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Chaque catégorie regroupe des centaines de vendeurs vérifiés. Clique pour en savoir plus.
@@ -284,7 +464,7 @@ export default function CategoriesPage() {
                       {category.name}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-2">{category.description}</p>
-                    
+
                     <div className="flex flex-wrap gap-2 mb-4">
                       {category.examples.slice(0, 2).map((example) => (
                         <span key={example} className={`text-xs ${category.bgLight} ${category.textColor} px-3 py-1 rounded-full font-medium`}>
@@ -311,14 +491,14 @@ export default function CategoriesPage() {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full mb-6">
                 <MessageCircle className="w-10 h-10 text-primary" />
               </div>
-              
+
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Tu ne trouves pas ce que tu cherches ?
               </h2>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Décris simplement ce que tu veux à notre bot WhatsApp. Il scannera tous les catalogues et te trouvera les meilleurs vendeurs en quelques secondes.
               </p>
-              
+
               <button
                 onClick={() => handleWhatsAppClick()}
                 className="inline-flex items-center gap-3 bg-white hover:bg-gray-50 text-primary px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-2xl hover:shadow-primary/20 hover:scale-105 group"
@@ -327,7 +507,7 @@ export default function CategoriesPage() {
                 Discuter avec le bot maintenant
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              
+
               <p className="text-sm text-gray-500 mt-6">
                 ⚡ Réponse en moins de 30 secondes • 💯 Gratuit pour les acheteurs
               </p>
