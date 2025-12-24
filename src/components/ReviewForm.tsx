@@ -25,6 +25,7 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
 
   const [contentTab, setContentTab] = useState<'text' | 'audio' | 'video'>('text');
   const [isRecording, setIsRecording] = useState(false);
+  const [recordingTime, setRecordingTime] = useState(0);
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,6 +33,7 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
+  const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Le scroll est géré par le parent (ReviewsPage)
@@ -56,6 +58,12 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
 
       mediaRecorder.start();
       setIsRecording(true);
+      setRecordingTime(0);
+
+      // Démarrer le timer
+      timerIntervalRef.current = setInterval(() => {
+        setRecordingTime(prev => prev + 1);
+      }, 1000);
     } catch (err) {
       setError('Impossible d\'accéder au microphone');
     }
@@ -65,12 +73,19 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
     if (mediaRecorderRef.current && isRecording) {
       mediaRecorderRef.current.stop();
       setIsRecording(false);
+
+      // Arrêter le timer
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
     }
   };
 
   const deleteRecording = () => {
     setAudioBlob(null);
     audioChunksRef.current = [];
+    setRecordingTime(0);
   };
 
   const handleVideoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,6 +135,42 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
     return true;
   };
 
+  const uploadToCloudinary = async (file: Blob | File, type: 'audio' | 'video'): Promise<string> => {
+    const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || 'dtwx8br7o';
+    const folderPath = `wa_catalog_reviews/${formData.vendorId}`;
+
+    const formDataUpload = new FormData();
+    formDataUpload.append('file', file);
+    formDataUpload.append('upload_preset', 'ml_default'); // Assurez-vous que ce preset est "Unsigned"
+    formDataUpload.append('resource_type', 'auto');
+    formDataUpload.append('folder', folderPath);
+
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/upload`,
+        {
+          method: 'POST',
+          body: formDataUpload,
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error('Détails erreur Cloudinary:', data);
+        if (data.error?.message?.includes('unsigned')) {
+          throw new Error('Un "Upload Preset" de type "Unsigned" est requis pour l\'envoi.');
+        }
+        throw new Error(data.error?.message || 'Erreur lors de l\'upload vers Cloudinary');
+      }
+
+      return data.secure_url;
+    } catch (err) {
+      console.error(`Erreur d'upload ${type}:`, err);
+      throw err;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -136,6 +187,30 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
     setIsSubmitting(true);
 
     try {
+      let audioUrl = null;
+      let videoUrl = null;
+
+      // Upload des médias si présents
+      if (audioBlob) {
+        try {
+          audioUrl = await uploadToCloudinary(audioBlob, 'audio');
+        } catch (err: any) {
+          setError(`Erreur lors de l'envoi de l'audio : ${err.message}`);
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
+      if (videoFile) {
+        try {
+          videoUrl = await uploadToCloudinary(videoFile, 'video');
+        } catch (err: any) {
+          setError(`Erreur lors de l'envoi de la vidéo : ${err.message}`);
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
       const { error: insertError } = await supabase
         .from('reviews')
         .insert([
@@ -147,6 +222,8 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
             rating_response_time: formData.ratingResponseTime,
             rating_courtesy: formData.ratingCourtesy,
             content_text: formData.contentText || null,
+            content_audio_url: audioUrl,
+            content_video_url: videoUrl,
             verified_purchase: formData.verifiedPurchase,
           },
         ]);
@@ -155,8 +232,6 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
 
       // Appeler onSuccess avant onClose pour permettre à la page parente de gérer l'affichage
       onSuccess();
-      // Ne pas appeler onClose ici, laisser la page parente décider
-      // onClose() sera appelé seulement si l'utilisateur clique sur Annuler
     } catch (err) {
       setError('Erreur lors de la soumission de l\'avis');
       console.error(err);
@@ -292,10 +367,9 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
             <button
               type="button"
               onClick={() => setContentTab('text')}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                  contentTab === 'text'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${contentTab === 'text'
+                ? 'bg-primary-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
             >
               Texte
@@ -303,22 +377,20 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
             <button
               type="button"
               onClick={() => setContentTab('audio')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                contentTab === 'audio'
-                  ? 'bg-green-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${contentTab === 'audio'
+                ? 'bg-green-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
             >
               Audio
             </button>
             <button
               type="button"
               onClick={() => setContentTab('video')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                contentTab === 'video'
-                  ? 'bg-green-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${contentTab === 'video'
+                ? 'bg-green-600 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
             >
               Vidéo
             </button>
@@ -341,41 +413,81 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
           )}
 
           {contentTab === 'audio' && (
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6">
               {!audioBlob ? (
-                <div>
+                <div className="text-center">
                   {!isRecording ? (
-                    <button
-                      type="button"
-                      onClick={startRecording}
-                      className="flex items-center gap-2 mx-auto px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-                    >
-                      <Mic className="w-5 h-5" />
-                      Enregistrer
-                    </button>
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-50 mb-2">
+                        <Mic className="w-8 h-8 sm:w-10 sm:h-10 text-red-600" />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={startRecording}
+                        className="flex items-center gap-2 mx-auto px-6 py-2.5 sm:px-8 sm:py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all shadow-md hover:shadow-lg font-medium text-sm sm:text-base"
+                      >
+                        <Mic className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="hidden sm:inline">Commencer l'enregistrement</span>
+                        <span className="sm:hidden">Enregistrer</span>
+                      </button>
+                      <p className="text-xs sm:text-sm text-gray-500 px-2">Cliquez pour enregistrer votre avis vocal</p>
+                    </div>
                   ) : (
-                    <button
-                      type="button"
-                      onClick={stopRecording}
-                      className="flex items-center gap-2 mx-auto px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors animate-pulse"
-                    >
-                      <Square className="w-5 h-5" />
-                      Arrêter
-                    </button>
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-100 mb-2 animate-pulse">
+                        <div className="w-3 h-3 sm:w-4 sm:h-4 bg-red-600 rounded-full animate-ping"></div>
+                      </div>
+                      <div className="space-y-2">
+                        <p className="text-red-600 font-semibold text-base sm:text-lg">Enregistrement en cours...</p>
+                        <div className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-50 rounded-lg border border-red-200">
+                          <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
+                          <span className="text-xl sm:text-2xl font-mono font-bold text-red-700">
+                            {Math.floor(recordingTime / 60)}:{(recordingTime % 60).toString().padStart(2, '0')}
+                          </span>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={stopRecording}
+                        className="flex items-center gap-2 mx-auto px-6 py-2.5 sm:px-8 sm:py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-xl font-medium border-2 border-red-700 text-sm sm:text-base"
+                      >
+                        <Square className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
+                        <span className="hidden sm:inline">Arrêter l'enregistrement</span>
+                        <span className="sm:hidden">Arrêter</span>
+                      </button>
+                    </div>
                   )}
                 </div>
               ) : (
-                <div>
-                  <audio controls className="w-full mb-4">
-                    <source src={URL.createObjectURL(audioBlob)} type="audio/webm" />
-                  </audio>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 sm:p-6 border border-green-200">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-600 text-white flex-shrink-0">
+                        <Mic className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+                      <div className="flex-1 text-left min-w-0">
+                        <p className="font-semibold text-gray-900 text-sm sm:text-base">Enregistrement audio</p>
+                        <p className="text-xs sm:text-sm text-gray-600 truncate">Votre avis vocal est prêt</p>
+                      </div>
+                    </div>
+                    <audio
+                      controls
+                      className="w-full h-10 sm:h-12 rounded-lg"
+                      style={{
+                        filter: 'drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))'
+                      }}
+                    >
+                      <source src={URL.createObjectURL(audioBlob)} type="audio/webm" />
+                    </audio>
+                  </div>
                   <button
                     type="button"
                     onClick={deleteRecording}
-                    className="flex items-center gap-2 mx-auto px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors"
+                    className="flex items-center gap-2 mx-auto px-5 py-2 sm:px-6 sm:py-2.5 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition-colors border border-red-200 font-medium text-sm sm:text-base"
                   >
                     <Trash2 className="w-4 h-4" />
-                    Supprimer
+                    <span className="hidden sm:inline">Supprimer et réenregistrer</span>
+                    <span className="sm:hidden">Supprimer</span>
                   </button>
                 </div>
               )}
@@ -488,20 +600,34 @@ export default function ReviewForm({ vendors, preselectedVendorId, onClose, onSu
           </label>
         </div>
 
-        <div className="flex gap-4 pt-4 border-t border-gray-200">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 border-t border-gray-200">
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 px-6 py-3 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+            className="w-full sm:flex-1 px-6 py-2.5 sm:py-3 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors text-sm sm:text-base"
           >
             Annuler
           </button>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex-1 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="w-full sm:flex-1 px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed text-sm sm:text-base"
           >
-            {isSubmitting ? 'Envoi en cours...' : 'Soumettre mon avis'}
+            {isSubmitting ? (
+              <span className="flex items-center justify-center gap-2">
+                <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span className="hidden sm:inline">Envoi en cours...</span>
+                <span className="sm:hidden">Envoi...</span>
+              </span>
+            ) : (
+              <>
+                <span className="hidden sm:inline">Soumettre mon avis</span>
+                <span className="sm:hidden">Soumettre</span>
+              </>
+            )}
           </button>
         </div>
       </form>

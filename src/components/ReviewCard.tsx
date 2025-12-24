@@ -118,19 +118,59 @@ export default function ReviewCard({ review, onVote }: ReviewCardProps) {
 
         {/* Audio */}
         {review.content_audio_url && (
-          <div className="mb-4">
-            <audio controls className="w-full">
-              <source src={review.content_audio_url} type="audio/mpeg" />
-            </audio>
+          <div className="mb-6">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-600 text-white flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900 text-sm sm:text-base">Avis vocal</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">Écoutez l'enregistrement audio</p>
+                </div>
+              </div>
+              <audio
+                controls
+                className="w-full h-10 sm:h-12 rounded-lg"
+                style={{
+                  filter: 'drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))'
+                }}
+              >
+                <source src={review.content_audio_url} />
+                Votre navigateur ne supporte pas la lecture audio.
+              </audio>
+            </div>
           </div>
         )}
 
         {/* Video */}
         {review.content_video_url && (
-          <div className="mb-4 rounded-lg overflow-hidden">
-            <video controls className="w-full max-h-80">
-              <source src={review.content_video_url} type="video/mp4" />
-            </video>
+          <div className="mb-6">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 sm:p-6 border border-purple-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-600 text-white flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                  </svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-gray-900 text-sm sm:text-base">Avis vidéo</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate">Regardez l'enregistrement vidéo</p>
+                </div>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-md bg-black">
+                <video
+                  controls
+                  className="w-full max-h-80 sm:max-h-96"
+                  preload="metadata"
+                >
+                  <source src={review.content_video_url} />
+                  Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+              </div>
+            </div>
           </div>
         )}
 
@@ -179,22 +219,20 @@ export default function ReviewCard({ review, onVote }: ReviewCardProps) {
         <div className="flex gap-3 w-full sm:w-auto">
           <button
             onClick={() => handleVote('yes')}
-            className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${
-              voted === 'yes'
-                ? 'bg-green-500 text-white scale-105'
-                : 'bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-green-600'
-            }`}
+            className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${voted === 'yes'
+              ? 'bg-green-500 text-white scale-105'
+              : 'bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-green-600'
+              }`}
           >
             <ThumbsUp className="w-4 h-4" />
             {review.helpful_yes}
           </button>
           <button
             onClick={() => handleVote('no')}
-            className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${
-              voted === 'no'
-                ? 'bg-red-500 text-white scale-105'
-                : 'bg-gray-100 text-gray-700 hover:bg-red-50 hover:text-red-600'
-            }`}
+            className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${voted === 'no'
+              ? 'bg-red-500 text-white scale-105'
+              : 'bg-gray-100 text-gray-700 hover:bg-red-50 hover:text-red-600'
+              }`}
           >
             <ThumbsDown className="w-4 h-4" />
             {review.helpful_no}

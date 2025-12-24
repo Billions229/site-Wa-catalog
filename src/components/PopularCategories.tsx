@@ -15,7 +15,9 @@ interface ProductFeatureCardProps {
   className?: string
 }
 
-const cardVariants = {
+import { Variants } from "framer-motion"
+
+const cardVariants: Variants = {
   offscreen: {
     y: 50,
     opacity: 0,
